@@ -1,0 +1,11 @@
+{
+    "minCharEmail": "Le minimum de caractères est de 8.",
+    "minCharPassword": "Le minimum de caractères est de 12.",
+    "minCharPseudo": "Le minimum de caractères est de 3.",
+    "maxChar": "Trop de caractères.",
+    "invalidPicture": "Image invalide.",
+    "missingField": "Champ manquant.",
+    "default": "Une erreur est survenue.",
+    "invalidEmail": "Email non valide.",
+    "invalidPassword": "Le mot de passe doit contenir une majuscule, une minuscule, un chiffre et un caractère spécial."
+}
