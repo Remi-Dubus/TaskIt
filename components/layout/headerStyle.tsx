@@ -3,9 +3,8 @@ import { COLORS, FONT_FAMILY, FONT_SIZE } from "../../styles/themes";
 
 export const headerStyle = StyleSheet.create({
     view: {
-        flex: 1,
         flexDirection: "row",
-        height: "100%"
+        height: "12%",
     },
     title: {
         fontFamily: FONT_FAMILY.title,

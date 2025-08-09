@@ -13,7 +13,7 @@ const BASE_SIZE = 16;
 
 export const FONT_SIZE = {
     appTitle: BASE_SIZE * 3.2,
-    mainTitle: BASE_SIZE * 3,
+    mainTitle: BASE_SIZE * 2.5,
     secondTitle: BASE_SIZE * 2,
     button: BASE_SIZE * 1.25,
     paragraphe: BASE_SIZE
