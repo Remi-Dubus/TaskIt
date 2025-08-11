@@ -7,7 +7,7 @@ export default function Header() {
     return (
         <View style={headerStyle.view}>
             <Image
-                source={require('../../assets/images/logo_taskit.png')}
+                source={require('../../assets/images/taskit-logo.png')}
                 style={headerStyle.logo}
                 resizeMode="contain"
             />
