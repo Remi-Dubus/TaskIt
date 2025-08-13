@@ -1,3 +1,5 @@
+import type { Control, FieldErrors, FieldPath } from "react-hook-form";
+
 export type envType = {
     FIREBASE_API_KEY: string;
     FIREBASE_AUTH_DOMAIN: string;
@@ -5,4 +7,23 @@ export type envType = {
     FIREBASE_STORAGE_BUCKET: string;
     FIREBASE_MESSAGING_SENDER_ID: string;
     FIREBASE_APP_ID: string;
+}
+
+export type registerType = {
+    email: string;
+    password: string;
+    confirmPassword: string;
+}
+
+export type loginType = {
+    email: string;
+    password: string;
+}
+
+export type floatingLabelInputType<T extends object> = {
+    control: Control<T>;
+    name: FieldPath<T>;
+    label: string;
+    secureTextEntry?: boolean;
+    errors: FieldErrors<T>;
 }
