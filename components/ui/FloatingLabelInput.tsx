@@ -1,13 +1,20 @@
 import { useState } from "react";
-import { Controller } from "react-hook-form";
+import { Controller, get } from "react-hook-form";
 import { Text, TextInput, View } from "react-native";
 
 import { COLORS, FONT_SIZE } from "@/styles/themes";
 import { floatingLabelInputType } from "@/types/definition";
 import { FloatingLabelInputStyle } from "./FloatingLabelInputStyle";
 
-export default function FloatingLabelInput({ control, name, label, secureTextEntry = false, errors }: floatingLabelInputType) {
+export default function FloatingLabelInput<T extends object>({
+  control,
+  name,
+  label,
+  secureTextEntry,
+  errors
+}: floatingLabelInputType<T>) {
   const [isFocused, setIsFocused] = useState(false);
+  const error = get(errors, name);
 
   return (
     <Controller
@@ -36,7 +43,7 @@ export default function FloatingLabelInput({ control, name, label, secureTextEnt
           ]}>
             {label}
           </Text>
-          {errors[name] && <Text style={FloatingLabelInputStyle.error}>{errors[name].message}</Text>}
+          {error && <Text style={FloatingLabelInputStyle.error}>{error.message as string}</Text>}
         </View>
       )}
     />

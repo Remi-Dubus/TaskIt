@@ -7,10 +7,10 @@ import Toast from "react-native-toast-message";
 import { register } from "@/services/auth/auth";
 import { showToast } from "@/utils/toast";
 import { resolverSchema } from "@/utils/validation";
-import FloatingLabelInput from "../../components/ui/FloatingLabelInput";
+import FloatingLabelInput from "../../../components/ui/FloatingLabelInput";
 
 import { registerType } from "@/types/definition";
-import data from "../../assets/data/auth.json";
+import data from "../../../assets/data/auth.json";
 import { registerStyle } from "./registerStyle";
 
 export default function Register() {

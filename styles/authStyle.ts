@@ -2,19 +2,14 @@ import { StyleSheet } from "react-native";
 
 import { COLORS, FONT_FAMILY, FONT_SIZE } from "@/styles/themes";
 
-export const registerStyle = StyleSheet.create({
-    view: { 
-        flex: 1,
-        paddingHorizontal: 40,
-        paddingBottom: 80,
-        paddingTop: 40,
-    },
+export const authStyle = StyleSheet.create({
     form: {
         borderWidth: 4,
         borderColor: COLORS.dark,
         borderRadius: 20,
         padding: 20,
-        minHeight: 360,
+        marginTop: "20%",
+        marginHorizontal: "5%",
         backgroundColor: COLORS.light,
         elevation: 5
     },
