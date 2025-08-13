@@ -9,6 +9,7 @@ import { showToast } from "@/utils/toast";
 import { resolverSchema } from "@/utils/validation";
 import FloatingLabelInput from "../../../components/ui/FloatingLabelInput";
 
+import { authStyle } from "@/styles/authStyle";
 import { registerType } from "@/types/definition";
 import data from "../../../assets/data/auth.json";
 import { registerStyle } from "./registerStyle";
@@ -48,16 +49,16 @@ export default function Register() {
 
     return (
         <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={registerStyle.view} >
-            <ScrollView keyboardShouldPersistTaps="handled" style={registerStyle.form}>
+            <ScrollView keyboardShouldPersistTaps="handled" style={authStyle.form}>
 
-                <Text style={registerStyle.title}>{data.createAccount}</Text>
+                <Text style={authStyle.title}>{data.createAccount}</Text>
                 
                 <FloatingLabelInput control={control} name="email" label={data.email} errors={errors}/>
                 <FloatingLabelInput control={control} name="password" label={data.password} secureTextEntry errors={errors}/>
                 <FloatingLabelInput control={control} name="confirmPassword" label={data.confirmPassword} secureTextEntry errors={errors}/>
 
-                <TouchableOpacity style={registerStyle.button} onPress={handleSubmit(onSubmit)}>
-                    <Text style={registerStyle.buttonText}>{data.register}</Text>
+                <TouchableOpacity style={authStyle.button} onPress={handleSubmit(onSubmit)}>
+                    <Text style={authStyle.buttonText}>{data.register}</Text>
                 </TouchableOpacity>
 
             </ScrollView>
