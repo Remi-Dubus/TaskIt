@@ -1,7 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "expo-router";
 import { useForm } from "react-hook-form";
-import { KeyboardAvoidingView, Platform, ScrollView, Text, TouchableOpacity } from "react-native";
+import { KeyboardAvoidingView, Platform, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import Toast from "react-native-toast-message";
 
 import { register } from "@/services/auth/auth";
@@ -49,18 +49,18 @@ export default function Register() {
 
     return (
         <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={registerStyle.view} >
-            <ScrollView keyboardShouldPersistTaps="handled" style={authStyle.form}>
-
-                <Text style={authStyle.title}>{data.createAccount}</Text>
+            <ScrollView keyboardShouldPersistTaps="handled" style={{ flex: 1 }}>
+                <View style={authStyle.form}>
+                    <Text style={authStyle.title}>{data.createAccount}</Text>
                 
-                <FloatingLabelInput control={control} name="email" label={data.email} errors={errors}/>
-                <FloatingLabelInput control={control} name="password" label={data.password} secureTextEntry errors={errors}/>
-                <FloatingLabelInput control={control} name="confirmPassword" label={data.confirmPassword} secureTextEntry errors={errors}/>
+                    <FloatingLabelInput control={control} name="email" label={data.email} errors={errors}/>
+                    <FloatingLabelInput control={control} name="password" label={data.password} secureTextEntry errors={errors}/>
+                    <FloatingLabelInput control={control} name="confirmPassword" label={data.confirmPassword} secureTextEntry errors={errors}/>
 
-                <TouchableOpacity style={authStyle.button} onPress={handleSubmit(onSubmit)}>
-                    <Text style={authStyle.buttonText}>{data.register}</Text>
-                </TouchableOpacity>
-
+                    <TouchableOpacity style={authStyle.button} onPress={handleSubmit(onSubmit)}>
+                        <Text style={authStyle.buttonText}>{data.register}</Text>
+                    </TouchableOpacity>
+                </View>
             </ScrollView>
             <Toast position="top"/>
         </KeyboardAvoidingView>

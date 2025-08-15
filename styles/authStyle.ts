@@ -8,7 +8,8 @@ export const authStyle = StyleSheet.create({
         borderColor: COLORS.dark,
         borderRadius: 20,
         padding: 20,
-        marginTop: "20%",
+        paddingBottom: 40,
+        marginTop: "10%",
         marginHorizontal: "5%",
         backgroundColor: COLORS.light,
         elevation: 5
