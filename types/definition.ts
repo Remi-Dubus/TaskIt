@@ -1,4 +1,4 @@
-import type { Control, FieldErrors, FieldPath } from "react-hook-form";
+import type { Control, FieldErrors, FieldPath, SubmitHandler, UseFormHandleSubmit } from "react-hook-form";
 
 export type envType = {
     FIREBASE_API_KEY: string;
@@ -26,4 +26,10 @@ export type floatingLabelInputType<T extends object> = {
     label: string;
     secureTextEntry?: boolean;
     errors: FieldErrors<T>;
+}
+
+export type buttonType<T extends object> = {
+    buttonText: string,
+    onSubmit: SubmitHandler<T>;
+    handleSubmit: UseFormHandleSubmit<T>; 
 }
