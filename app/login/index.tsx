@@ -55,7 +55,7 @@ export default function Login() {
                     <Text style={authStyle.title}>{data.login}</Text>
                 
                     <FloatingLabelInput control={control} name="email" label={data.email} errors={errors}/>
-                    <FloatingLabelInput control={control} name="password" label={data.password} errors={errors}/>
+                    <FloatingLabelInput control={control} name="password" label={data.password} secureTextEntry errors={errors}/>
 
                     <Button buttonText={data.login} onSubmit={onSubmit} handleSubmit={handleSubmit}/>
 
