@@ -24,6 +24,7 @@ export type floatingLabelInputType<T extends object> = {
     control: Control<T>;
     name: FieldPath<T>;
     label: string;
+    autoCapitalize?: "none" | "sentences" | "words" | "characters";
     secureTextEntry?: boolean;
     errors: FieldErrors<T>;
 }

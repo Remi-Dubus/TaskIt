@@ -42,7 +42,7 @@ export default function Login() {
             showToast("success", result.message);
             reset();
             setTimeout( () => {
-                router.replace("./register");
+                router.replace("./");
             },
             1600)
         }
@@ -54,8 +54,8 @@ export default function Login() {
                 <View style={authStyle.form}>
                     <Text style={authStyle.title}>{data.login}</Text>
                 
-                    <FloatingLabelInput control={control} name="email" label={data.email} errors={errors}/>
-                    <FloatingLabelInput control={control} name="password" label={data.password} secureTextEntry errors={errors}/>
+                    <FloatingLabelInput control={control} name="email" label={data.email} autoCapitalize="none" errors={errors}/>
+                    <FloatingLabelInput control={control} name="password" label={data.password} secureTextEntry autoCapitalize="none" errors={errors}/>
 
                     <Button buttonText={data.login} onSubmit={onSubmit} handleSubmit={handleSubmit}/>
 

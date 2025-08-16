@@ -10,6 +10,7 @@ export default function FloatingLabelInput<T extends object>({
   control,
   name,
   label,
+  autoCapitalize,
   secureTextEntry,
   errors
 }: floatingLabelInputType<T>) {
@@ -25,6 +26,7 @@ export default function FloatingLabelInput<T extends object>({
           <TextInput
             placeholder=""
             style={FloatingLabelInputStyle.input}
+            autoCapitalize={autoCapitalize}
             secureTextEntry={secureTextEntry}
             onChangeText={onChange}
             value={value}
