@@ -1,9 +1,10 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Link, useRouter } from "expo-router";
 import { useForm } from "react-hook-form";
-import { KeyboardAvoidingView, Platform, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { KeyboardAvoidingView, Platform, ScrollView, Text, View } from "react-native";
 import Toast from "react-native-toast-message";
 
+import Button from "@/components/ui/Button";
 import FloatingLabelInput from "@/components/ui/FloatingLabelInput";
 import { login } from "@/services/auth/auth";
 import { showToast } from "@/utils/toast";
@@ -56,9 +57,7 @@ export default function Login() {
                     <FloatingLabelInput control={control} name="email" label={data.email} errors={errors}/>
                     <FloatingLabelInput control={control} name="password" label={data.password} errors={errors}/>
 
-                    <TouchableOpacity onPress={handleSubmit(onSubmit)} style={authStyle.button}>
-                        <Text style={authStyle.buttonText}>{data.login}</Text>
-                    </TouchableOpacity>
+                    <Button buttonText={data.login} onSubmit={onSubmit} handleSubmit={handleSubmit}/>
 
                     <Text style={loginStyle.linkText}>{data.toRegister}
                         <Link href="./login/register" style={loginStyle.link}>{data.register}</Link>
