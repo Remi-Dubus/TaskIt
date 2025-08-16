@@ -43,7 +43,7 @@ export default function Register() {
         } else {
             showToast("success", result.message);
             reset();
-            router.replace("/");
+            router.replace("./login");
         }
     }
 
@@ -53,9 +53,9 @@ export default function Register() {
                 <View style={authStyle.form}>
                     <Text style={authStyle.title}>{data.createAccount}</Text>
                 
-                    <FloatingLabelInput control={control} name="email" label={data.email} errors={errors}/>
-                    <FloatingLabelInput control={control} name="password" label={data.password} secureTextEntry errors={errors}/>
-                    <FloatingLabelInput control={control} name="confirmPassword" label={data.confirmPassword} secureTextEntry errors={errors}/>
+                    <FloatingLabelInput control={control} name="email" label={data.email} autoCapitalize="none" errors={errors}/>
+                    <FloatingLabelInput control={control} name="password" label={data.password} autoCapitalize="none" secureTextEntry errors={errors}/>
+                    <FloatingLabelInput control={control} name="confirmPassword" label={data.confirmPassword} autoCapitalize="none" secureTextEntry errors={errors}/>
 
                     <Button buttonText={data.register} onSubmit={onSubmit} handleSubmit={handleSubmit}/>
                 </View>
