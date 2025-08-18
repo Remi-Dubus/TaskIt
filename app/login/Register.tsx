@@ -1,18 +1,19 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "expo-router";
 import { useForm } from "react-hook-form";
-import { KeyboardAvoidingView, Platform, ScrollView, Text, TouchableOpacity } from "react-native";
+import { KeyboardAvoidingView, Platform, ScrollView, Text, View } from "react-native";
 import Toast from "react-native-toast-message";
 
+import Button from "@/components/ui/Button";
 import { register } from "@/services/auth/auth";
 import { showToast } from "@/utils/toast";
 import { resolverSchema } from "@/utils/validation";
-import FloatingLabelInput from "../../../components/ui/FloatingLabelInput";
+import FloatingLabelInput from "../../components/ui/FloatingLabelInput";
 
+import Header from "@/components/layout/Header";
 import { authStyle } from "@/styles/authStyle";
 import { registerType } from "@/types/definition";
-import data from "../../../assets/data/auth.json";
-import { registerStyle } from "./registerStyle";
+import data from "../../assets/data/auth.json";
 
 export default function Register() {
     // Call zod schema for resolver and check if password and confirmPassword is the same
@@ -43,24 +44,23 @@ export default function Register() {
         } else {
             showToast("success", result.message);
             reset();
-            router.replace("/");
+            router.replace("./login");
         }
     }
 
     return (
-        <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={registerStyle.view} >
-            <ScrollView keyboardShouldPersistTaps="handled" style={authStyle.form}>
-
-                <Text style={authStyle.title}>{data.createAccount}</Text>
+        <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ flex: 1 }} >
+            <ScrollView keyboardShouldPersistTaps="handled" style={{ flex: 1 }}>
+                <Header />
+                <View style={authStyle.form}>
+                    <Text style={authStyle.title}>{data.createAccount}</Text>
                 
-                <FloatingLabelInput control={control} name="email" label={data.email} errors={errors}/>
-                <FloatingLabelInput control={control} name="password" label={data.password} secureTextEntry errors={errors}/>
-                <FloatingLabelInput control={control} name="confirmPassword" label={data.confirmPassword} secureTextEntry errors={errors}/>
+                    <FloatingLabelInput control={control} name="email" label={data.email} autoCapitalize="none" errors={errors}/>
+                    <FloatingLabelInput control={control} name="password" label={data.password} autoCapitalize="none" secureTextEntry errors={errors}/>
+                    <FloatingLabelInput control={control} name="confirmPassword" label={data.confirmPassword} autoCapitalize="none" secureTextEntry errors={errors}/>
 
-                <TouchableOpacity style={authStyle.button} onPress={handleSubmit(onSubmit)}>
-                    <Text style={authStyle.buttonText}>{data.register}</Text>
-                </TouchableOpacity>
-
+                    <Button buttonText={data.register} onSubmit={onSubmit} handleSubmit={handleSubmit}/>
+                </View>
             </ScrollView>
             <Toast position="top"/>
         </KeyboardAvoidingView>
