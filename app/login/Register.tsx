@@ -8,11 +8,12 @@ import Button from "@/components/ui/Button";
 import { register } from "@/services/auth/auth";
 import { showToast } from "@/utils/toast";
 import { resolverSchema } from "@/utils/validation";
-import FloatingLabelInput from "../../../components/ui/FloatingLabelInput";
+import FloatingLabelInput from "../../components/ui/FloatingLabelInput";
 
+import Header from "@/components/layout/Header";
 import { authStyle } from "@/styles/authStyle";
 import { registerType } from "@/types/definition";
-import data from "../../../assets/data/auth.json";
+import data from "../../assets/data/auth.json";
 
 export default function Register() {
     // Call zod schema for resolver and check if password and confirmPassword is the same
@@ -50,6 +51,7 @@ export default function Register() {
     return (
         <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ flex: 1 }} >
             <ScrollView keyboardShouldPersistTaps="handled" style={{ flex: 1 }}>
+                <Header />
                 <View style={authStyle.form}>
                     <Text style={authStyle.title}>{data.createAccount}</Text>
                 
