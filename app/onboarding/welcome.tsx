@@ -12,16 +12,16 @@ export default function Welcome() {
 
     return (
         <View style={onboardingStyle.view}>
-                <Image
-                    source={require('../../assets/images/taskit-logo.png')}
-                    resizeMode="contain"
-                    style={onboardingStyle.picture}
-                />
-                <Text style={onboardingStyle.text}>
-                    {data.welcome}
-                    <Text style={onboardingStyle.title}>{title.appTitle}</Text>
-                    {data.welcomeBis}
-                </Text>
+            <Image
+                source={require('../../assets/images/taskit-logo.png')}
+                resizeMode="contain"
+                style={onboardingStyle.picture}
+            />
+            <Text style={onboardingStyle.text}>
+                {data.welcome}
+                <Text style={onboardingStyle.title}>{title.appTitle}</Text>
+                {data.welcomeBis}
+            </Text>
             <Arrow onPress={()=> router.push("/onboarding/addTask")}/>
         </View>
     )
