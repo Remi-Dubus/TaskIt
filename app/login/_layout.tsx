@@ -1,15 +1,10 @@
-import { Slot } from "expo-router"
-import { View } from "react-native"
-
-import Header from "@/components/layout/Header"
-
-import { layoutStyle } from "./layoutStyle"
+import { Stack } from "expo-router"
 
 export default function sectionLayout() {
     return(
-        <View style={layoutStyle.layout}>
-            <Header />
-            <Slot />
-        </View>
+        <Stack>
+            <Stack.Screen name="index" options={{ title: "Se connecter" }} />
+            <Stack.Screen name="Register" options={{ title: "S'inscrire" }} />
+        </Stack>
     )
 }
