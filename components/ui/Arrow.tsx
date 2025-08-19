@@ -13,7 +13,7 @@ export default function Arrow({ onPress }: { onPress: () => void }){
             >
                 <Path
                     d="M4 12h16M14 6l6 6-6 6"
-                    stroke={COLORS.green}
+                    stroke={COLORS.dark}
                     strokeWidth={3}
                     strokeLinecap="round"
                     strokeLinejoin="round"

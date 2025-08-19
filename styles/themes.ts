@@ -16,6 +16,7 @@ export const FONT_SIZE = {
     mainTitle: BASE_SIZE * 2.5,
     secondTitle: BASE_SIZE * 2,
     button: BASE_SIZE * 1.25,
+    onboardingText: BASE_SIZE * 1.7,
     paragraphe: BASE_SIZE
 }
 

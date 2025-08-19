@@ -10,7 +10,7 @@ export const onboardingStyle = StyleSheet.create({
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        padding: 30
+        padding: 60
     },
     picture: {
         width: 160,
@@ -22,7 +22,7 @@ export const onboardingStyle = StyleSheet.create({
     text: {
         marginBottom: 30,
         fontFamily: FONT_FAMILY.paragraphe,
-        fontSize: FONT_SIZE.secondTitle,
+        fontSize: FONT_SIZE.onboardingText,
         color: COLORS.dark,
         textAlign: "center",
     }
