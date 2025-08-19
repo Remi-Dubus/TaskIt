@@ -22,5 +22,5 @@ export const FONT_SIZE = {
 
 export const FONT_FAMILY = {
     title: "Inter-SemiBold",
-    paragraphe: "Khula-Regular"
+    paragraphe: "Maven-Regular"
 }
