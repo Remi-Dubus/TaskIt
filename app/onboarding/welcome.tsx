@@ -15,7 +15,7 @@ export default function Welcome() {
             <Image
                 source={require('../../assets/images/taskit-logo.png')}
                 resizeMode="contain"
-                style={onboardingStyle.picture}
+                style={{ width: 160, height: 160 }}
             />
             <Text style={onboardingStyle.text}>
                 {data.welcome}

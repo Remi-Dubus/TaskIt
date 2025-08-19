@@ -12,13 +12,14 @@ export const onboardingStyle = StyleSheet.create({
         justifyContent: "center",
         padding: 60
     },
-    picture: {
-        width: 160,
-        height: 160,
-    },
     title:{
         fontFamily: FONT_FAMILY.title
-    },    
+    },  
+    image: {
+        width: 120,
+        height: 120,
+        marginBottom: 20
+    },
     text: {
         marginBottom: 30,
         fontFamily: FONT_FAMILY.paragraphe,
