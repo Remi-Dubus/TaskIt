@@ -1,3 +1,4 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useRouter } from "expo-router";
 import { Image, Text, View } from "react-native";
 
@@ -10,6 +11,11 @@ import data from "../../assets/data/onboarding.json";
 export default function unfinishedTask() {
     const router = useRouter();
 
+    const finishOnboarding = async () => {
+        await AsyncStorage.setItem("onboarding", "true");
+        router.push("/login");
+    }
+
     return (
         <View style={[onboardingStyle.view, { backgroundColor: COLORS.lightGrey, padding: 50 }]}>
             <Image
@@ -20,7 +26,7 @@ export default function unfinishedTask() {
             <Text style={onboardingStyle.text}>
                 {data.doneTask}
             </Text>
-            <Arrow onPress={()=> router.push("/login")}/>
+            <Arrow onPress={() => finishOnboarding()}/>
         </View>
     )
 }
