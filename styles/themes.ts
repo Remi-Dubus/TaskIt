@@ -3,9 +3,9 @@ export const COLORS = {
     dark: "#4D5155",
     lightGrey:"#DFDFDF",
     darkGrey: "#919191",
-    lightGreen: "#EAFFEB",
+    lightGreen: "#d7fdc1ff",
     green: "#37983B",
-    lightYellow: "#FDFFE5",
+    lightYellow: "#fffcd0ff",
     orange: "#DD9428FF"
 }
 
