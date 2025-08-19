@@ -4,13 +4,13 @@
 
 Task It est ma première application React Native, développée pour gérer des tâches sous forme de To-Do List.
 
-Ce projet m’a permis de découvrir et de mettre en pratique plusieurs concepts avancés du développement mobile et React:
+Ce projet m'a permis de découvrir et de mettre en pratique plusieurs concepts avancés du développement mobile et React:
  - Développement mobile avec React Native
  - Gestion des données et authentification avec Firebase
  - Utilisation de types génériques pour un code plus sûr et modulable
  - Création d’une interface intuitive pour ajouter, supprimer et suivre ses tâches
 
-🧾**Portfolio personnel** : [Voir mon portfolio](https://www.remi-dubus.fr)
+🧾**Portfolio personnel**: [Voir mon portfolio](https://www.remi-dubus.fr)
 
 ---
 
