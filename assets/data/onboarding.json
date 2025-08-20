@@ -1,0 +1,7 @@
+{
+    "welcome": "Bienvenue sur ",
+    "welcomeBis": " l'application pour s'organiser au quotidien.",
+    "addTask": "Ajoutez des tâches à faire pour le jour même ou pour plus tard.",
+    "unfinishedTask": "Les tâches non abouti peuvent être reportées au lendemain ou annulées.",
+    "doneTask": "Les tâches terminées sont archivées et consultables à tout moment."
+}
