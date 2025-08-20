@@ -43,7 +43,7 @@ export default function Login() {
             showToast("success", result.message);
             reset();
             setTimeout( () => {
-                router.replace("./");
+                router.replace("./home");
             },
             1600)
         }
