@@ -1,28 +1,23 @@
-import { Stack, useRouter } from "expo-router";
+import { Slot, useRouter } from "expo-router";
 import * as SecureStore from "expo-secure-store";
 import { useEffect, useState } from "react";
 
-export default function LoginLayout() {
+export default function HomeLayout() {
     const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
     const router = useRouter();
 
     useEffect(() => {
         (async () => {
             const token = await SecureStore.getItemAsync("userToken");
-            if (token) {
-                router.replace("/home");
+            if (!token) {
+                router.replace("/login");
             } else {
-                setIsAuthenticated(false);
+                setIsAuthenticated(true);
             }
         })();
     }, []);
 
     if (isAuthenticated === null) return null;
 
-    return (
-        <Stack>
-            <Stack.Screen name="index" options={{ title: "Se connecter" }} />
-            <Stack.Screen name="Register" options={{ title: "S'inscrire" }} />
-        </Stack>
-    );
+    return <Slot />;
 }
