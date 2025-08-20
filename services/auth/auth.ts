@@ -1,8 +1,11 @@
-import { createUser } from "@/services/user/userService";
+import * as SecureStore from "expo-secure-store";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import error from "../../assets/data/error.json";
+
+import { createUser } from "@/services/user/userService";
 import { auth } from "../../firebaseConfig";
 import { accountValidationSchema } from "../../utils/validation";
+
+import error from "../../assets/data/error.json";
 
 export const register = async(email: string, password: string) => {
     // Verify data with zod
@@ -54,6 +57,13 @@ export const login = async(email: string, password: string) => {
     try {
         // Try to loggin
         const credential = await signInWithEmailAndPassword(auth, email, password);
+
+        // Get the firebase token
+        const token = await credential.user.getIdToken();
+
+        // Store the token on SecureStore
+        await SecureStore.setItemAsync("userToken", token);
+
         return {
             success: true,
             message: "Connexion réussie.",

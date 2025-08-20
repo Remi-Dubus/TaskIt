@@ -4,7 +4,7 @@ import { Text, View } from "react-native";
 export default function Index() {
   const [fontsLoaded] = useFonts({
     "Inter-SemiBold": require("../assets/fonts/inter-semibold.ttf"),
-    "Khula-Regular": require("../assets/fonts/khula-regular.ttf"),
+    "Maven-Regular": require("../assets/fonts/maven-regular.ttf"),
   });
 
   return (

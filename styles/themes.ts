@@ -3,9 +3,9 @@ export const COLORS = {
     dark: "#4D5155",
     lightGrey:"#DFDFDF",
     darkGrey: "#919191",
-    lightGreen: "#EAFFEB",
+    lightGreen: "#d7fdc1ff",
     green: "#37983B",
-    lightYellow: "#FDFFE5",
+    lightYellow: "#fffcd0ff",
     orange: "#DD9428FF"
 }
 
@@ -16,10 +16,11 @@ export const FONT_SIZE = {
     mainTitle: BASE_SIZE * 2.5,
     secondTitle: BASE_SIZE * 2,
     button: BASE_SIZE * 1.25,
+    onboardingText: BASE_SIZE * 1.7,
     paragraphe: BASE_SIZE
 }
 
 export const FONT_FAMILY = {
     title: "Inter-SemiBold",
-    paragraphe: "Khula-Regular"
+    paragraphe: "Maven-Regular"
 }
