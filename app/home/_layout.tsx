@@ -16,7 +16,6 @@ export default function HomeLayout() {
             }
             return token;
         })();
-
     }, []);
 
     if (isAuthenticated === null) return null;
