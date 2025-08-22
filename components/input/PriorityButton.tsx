@@ -3,7 +3,7 @@ import { Text, TouchableOpacity, View } from "react-native";
 
 import { FONT_SIZE } from "@/styles/themes";
 import { taskType } from "@/types/definition";
-import { FloatingLabelInputStyle } from "../ui/FloatingLabelInputStyle";
+import { inputStyle } from "./inputStyle";
 
 export default function PriorityButton({ control, errors }: { control: Control<taskType>, errors: FieldErrors<taskType>}) {
     const nextPriority = (current: number) => {
@@ -17,9 +17,9 @@ export default function PriorityButton({ control, errors }: { control: Control<t
             control={control}
             name="priority"
             render={({ field: { onChange, value } }) => (
-                <View style={[FloatingLabelInputStyle.input, { width: "30%", marginLeft: "4%" }]}>
+                <View style={[inputStyle.input, { width: "30%", marginLeft: "4%" }]}>
                     <TouchableOpacity onPress={() => onChange(nextPriority(value || 1))} style={{display: "flex", flexDirection: "row"}}>
-                        <Text style={[FloatingLabelInputStyle.label, { marginTop: 8, fontSize: FONT_SIZE.paragraphe * 1.2 }]}>Priorité: </Text>
+                        <Text style={[inputStyle.label, { marginTop: 8, fontSize: FONT_SIZE.paragraphe * 1.2 }]}>Priorité: </Text>
                         <View
                             style={{
                                 width: 20,
@@ -32,7 +32,7 @@ export default function PriorityButton({ control, errors }: { control: Control<t
                             }}
                         />
                     </TouchableOpacity>
-                    {errors && <Text style={FloatingLabelInputStyle.error}>{errors.priority?.message as string}</Text>}
+                    {errors && <Text style={inputStyle.error}>{errors.priority?.message as string}</Text>}
                 </View>
             )}
         />
