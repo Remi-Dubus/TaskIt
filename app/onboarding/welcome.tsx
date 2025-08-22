@@ -1,7 +1,7 @@
 import { useRouter } from "expo-router";
 import { Image, Text, View } from "react-native";
 
-import Arrow from "@/components/ui/Arrow";
+import Arrow from "@/components/button/Arrow";
 
 import { onboardingStyle } from "@/styles/onboardingStyle";
 import title from "../../assets/data/layout.json";
