@@ -7,5 +7,7 @@
     "missingField": "Champ manquant.",
     "default": "Une erreur est survenue.",
     "invalidEmail": "Email non valide.",
-    "invalidPassword": "Le mot de passe doit contenir une majuscule, une minuscule, un chiffre et un caractère spécial."
+    "invalidPassword": "Le mot de passe doit contenir une majuscule, une minuscule, un chiffre et un caractère spécial.",
+    "invalidInput": "Le champs de saisis contient un caractère interdit.",
+    "invalidDate": "La date est invalide."
 }

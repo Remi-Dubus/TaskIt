@@ -10,7 +10,6 @@ export const FloatingLabelInputStyle = StyleSheet.create({
     label: {
         fontFamily: FONT_FAMILY.paragraphe,
         fontSize: FONT_SIZE.paragraphe,
-
     },
     input: {
         height: 48,
@@ -22,6 +21,10 @@ export const FloatingLabelInputStyle = StyleSheet.create({
         paddingHorizontal: 10,
         paddingTop: 10,
         paddingBottom: 0
+    },
+    textArea: {
+        height: 180,
+        textAlignVertical: "top",
     },
     error: {
         color: COLORS.orange,

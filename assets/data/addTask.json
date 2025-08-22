@@ -1,0 +1,8 @@
+{
+    "title": "Ajouter une tâche",
+    "priority": "Priorité",
+    "description": "Description",
+    "date": "Date",
+    "validateButton": "Valider",
+    "returnButton": "Retour"
+}

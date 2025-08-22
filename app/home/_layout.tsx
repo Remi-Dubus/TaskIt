@@ -14,6 +14,7 @@ export default function HomeLayout() {
             } else {
                 setIsAuthenticated(true);
             }
+            return token;
         })();
     }, []);
 
