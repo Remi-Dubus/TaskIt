@@ -1,23 +1,23 @@
+import { auth } from "@/firebaseConfig";
 import { Stack, useRouter } from "expo-router";
-import * as SecureStore from "expo-secure-store";
+import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 
 export default function LoginLayout() {
-    const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+    const [loading, setLoading] = useState(true);
     const router = useRouter();
 
     useEffect(() => {
-        (async () => {
-            const token = await SecureStore.getItemAsync("userToken");
-            if (token) {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            if (currentUser) {
                 router.replace("/home");
-            } else {
-                setIsAuthenticated(false);
             }
-        })();
-    }, []);
+            setLoading(false);
+        });
+        return () => unsubscribe();
+    }, [router]);
 
-    if (isAuthenticated === null) return null;
+    if (loading) return null;
 
     return (
         <Stack>
