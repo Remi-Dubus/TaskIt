@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 import { COLORS, FONT_FAMILY, FONT_SIZE } from "@/styles/themes";
 
-export const FloatingLabelInputStyle = StyleSheet.create({
+export const inputStyle = StyleSheet.create({
     inputText: {
         marginTop: 8,
         height: 80

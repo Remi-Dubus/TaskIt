@@ -6,10 +6,10 @@ import { showToast } from "@/utils/toast";
 import { addTaskValidation } from "@/utils/validation";
 import { createTask } from "../../services/task/createTask";
 import DatePicker from "../input/DatePicker";
+import FloatingLabelInput from "../input/FloatingLabelInput";
 import FloatingLabelTextArea from "../input/FloatingLabelTextArea";
 import PriorityButton from "../input/PriorityButton";
 import Button from "../ui/Button";
-import FloatingLabelInput from "../ui/FloatingLabelInput";
 
 import { taskType } from "@/types/definition";
 import data from "../../assets/data/addTask.json";
@@ -17,7 +17,7 @@ import { addTaskModalStyle } from "./addTaskModalStyle";
 
 export default function AddTaskModale({ isVisibleModal, setIsVisibleModal }: { isVisibleModal: boolean, setIsVisibleModal: (bool: boolean) => void }) {
     // Call zod schema for resolver
-        const validation = addTaskValidation;
+    const validation = addTaskValidation;
     
     // Call React-Hook-Form with zodResolver
     const {

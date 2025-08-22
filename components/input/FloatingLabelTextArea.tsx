@@ -4,7 +4,7 @@ import { Text, TextInput, View } from "react-native";
 
 import { COLORS, FONT_SIZE } from "@/styles/themes";
 import { floatingLabelInputType } from "@/types/definition";
-import { FloatingLabelInputStyle } from "../ui/FloatingLabelInputStyle";
+import { inputStyle } from "./inputStyle";
 
 export default function FloatingLabelTextArea<T extends object>({
   control,
@@ -20,10 +20,10 @@ export default function FloatingLabelTextArea<T extends object>({
       control={control}
       name={name}
       render={({ field: { onChange, value } }) => (
-        <View style={[FloatingLabelInputStyle.inputText, { height: 180}]}>
+        <View style={[inputStyle.inputText, { height: 180}]}>
           <TextInput
             placeholder=""
-            style={[FloatingLabelInputStyle.input, FloatingLabelInputStyle.textArea]}
+            style={[inputStyle.input, inputStyle.textArea]}
             multiline={true}
             numberOfLines={10} 
             onChangeText={onChange}
@@ -32,7 +32,7 @@ export default function FloatingLabelTextArea<T extends object>({
             onBlur={() => setIsFocused(false)}
           />
           <Text style={[
-            FloatingLabelInputStyle.label,
+            inputStyle.label,
             {
               top: isFocused || value ? -16 : 20,
               fontSize: isFocused || value ? FONT_SIZE.paragraphe * 1.2: FONT_SIZE.paragraphe,
@@ -43,7 +43,7 @@ export default function FloatingLabelTextArea<T extends object>({
           ]}>
             {label}
           </Text>
-          {error && <Text style={FloatingLabelInputStyle.error}>{error.message as string}</Text>}
+          {error && <Text style={inputStyle.error}>{error.message as string}</Text>}
         </View>
       )}
     />

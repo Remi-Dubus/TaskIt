@@ -8,7 +8,7 @@ import Button from "@/components/ui/Button";
 import { register } from "@/services/auth/auth";
 import { showToast } from "@/utils/toast";
 import { resolverSchema } from "@/utils/validation";
-import FloatingLabelInput from "../../components/ui/FloatingLabelInput";
+import FloatingLabelInput from "../../components/input/FloatingLabelInput";
 
 import Header from "@/components/layout/Header";
 import { authStyle } from "@/styles/authStyle";
