@@ -15,7 +15,7 @@ import { modalType, taskType } from "@/types/definition";
 import data from "../../assets/data/addTask.json";
 import { addTaskModalStyle } from "./addTaskModalStyle";
 
-export default function AddTaskModale({ isVisibleModal, setIsVisibleModal }: modalType) {
+export default function AddTaskModal({ isVisibleModal, setIsVisibleModal }: modalType) {
     // Call zod schema for resolver
     const validation = addTaskValidation;
     
