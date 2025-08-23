@@ -41,3 +41,8 @@ export type taskType = {
     date: Date;
     description?: string;
 }
+
+export type modalType = {
+    isVisibleModal: boolean,
+    setIsVisibleModal: (bool: boolean) => void 
+}
