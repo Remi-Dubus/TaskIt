@@ -11,11 +11,11 @@ import FloatingLabelInput from "../input/FloatingLabelInput";
 import FloatingLabelTextArea from "../input/FloatingLabelTextArea";
 import PriorityButton from "../input/PriorityButton";
 
-import { taskType } from "@/types/definition";
+import { modalType, taskType } from "@/types/definition";
 import data from "../../assets/data/addTask.json";
 import { addTaskModalStyle } from "./addTaskModalStyle";
 
-export default function AddTaskModale({ isVisibleModal, setIsVisibleModal }: { isVisibleModal: boolean, setIsVisibleModal: (bool: boolean) => void }) {
+export default function AddTaskModale({ isVisibleModal, setIsVisibleModal }: modalType) {
     // Call zod schema for resolver
     const validation = addTaskValidation;
     
@@ -43,7 +43,7 @@ export default function AddTaskModale({ isVisibleModal, setIsVisibleModal }: { i
             reset;
             setIsVisibleModal(false);
         }
-    }
+    };
 
     return (
         <Modal
