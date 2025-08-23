@@ -30,7 +30,19 @@ export type floatingLabelInputType<T extends object> = {
 }
 
 export type buttonType<T extends object> = {
-    buttonText: string,
+    buttonText: string;
     onSubmit: SubmitHandler<T>;
     handleSubmit: UseFormHandleSubmit<T>; 
+}
+
+export type taskType = {
+    title: string;
+    priority: number;
+    date: Date;
+    description?: string;
+}
+
+export type modalType = {
+    isVisibleModal: boolean,
+    setIsVisibleModal: (bool: boolean) => void 
 }

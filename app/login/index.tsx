@@ -4,9 +4,9 @@ import { useForm } from "react-hook-form";
 import { KeyboardAvoidingView, Platform, ScrollView, Text, View } from "react-native";
 import Toast from "react-native-toast-message";
 
+import Button from "@/components/button/Button";
+import FloatingLabelInput from "@/components/input/FloatingLabelInput";
 import Header from "@/components/layout/Header";
-import Button from "@/components/ui/Button";
-import FloatingLabelInput from "@/components/ui/FloatingLabelInput";
 import { login } from "@/services/auth/auth";
 import { showToast } from "@/utils/toast";
 import { accountValidationSchema } from "@/utils/validation";
