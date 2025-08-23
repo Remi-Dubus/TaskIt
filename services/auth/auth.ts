@@ -50,7 +50,7 @@ export const login = async(email: string, password: string) => {
 		return {
 			success: false,
 			errors: validation.error.flatten().fieldErrors,
-			message: error.missingField
+			message: error.default
 		};
 	}
 
