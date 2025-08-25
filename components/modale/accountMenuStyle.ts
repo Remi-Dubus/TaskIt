@@ -20,4 +20,11 @@ export const accountMenuStyle = StyleSheet.create({
         alignItems: "center",
         backgroundColor: COLORS.light
     },
+    buttons: {
+        display: "flex",
+        flexDirection: "column",
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center"
+    }
 });
