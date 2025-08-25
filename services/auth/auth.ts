@@ -1,5 +1,5 @@
 import * as SecureStore from "expo-secure-store";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 import { createUser } from "@/services/user/userService";
 import { auth } from "../../firebaseConfig";
@@ -74,5 +74,21 @@ export const login = async(email: string, password: string) => {
             success: false,
             message: "Le couple email/mot de passe est invalide."
         };
+    }
+}
+
+export const logout = async() => {
+    try {
+        await signOut(auth);
+
+        return {
+            success: true,
+            message: "Déconnection reussi."
+        }
+    } catch {
+        return {
+            success: false,
+            message: error.default
+        }
     }
 }
