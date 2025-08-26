@@ -5,7 +5,7 @@ import { KeyboardAvoidingView, Modal, Platform, ScrollView, Text, View } from "r
 import { showToast } from "@/utils/toast";
 import { addTaskValidation } from "@/utils/validation";
 import { createTask } from "../../services/task/createTask";
-import Button from "../button/Button";
+import SubmitButton from "../button/SubmitButton";
 import DatePicker from "../input/DatePicker";
 import FloatingLabelInput from "../input/FloatingLabelInput";
 import FloatingLabelTextArea from "../input/FloatingLabelTextArea";
@@ -15,7 +15,7 @@ import { modalType, taskType } from "@/types/definition";
 import data from "../../assets/data/addTask.json";
 import { addTaskModalStyle } from "./addTaskModalStyle";
 
-export default function AddTaskModale({ isVisibleModal, setIsVisibleModal }: modalType) {
+export default function AddTaskModal({ isVisibleModal, setIsVisibleModal }: modalType) {
     // Call zod schema for resolver
     const validation = addTaskValidation;
     
@@ -65,7 +65,7 @@ export default function AddTaskModale({ isVisibleModal, setIsVisibleModal }: mod
                         <FloatingLabelInput control={control} name="title" label={data.title} errors={errors}/>
                         <FloatingLabelTextArea control={control} name="description" label={data.description} errors={errors}/>
 
-                        <Button buttonText={data.validateButton} onSubmit={onSubmit} handleSubmit={handleSubmit}/>
+                        <SubmitButton buttonText={data.validateButton} onSubmit={onSubmit} handleSubmit={handleSubmit}/>
                     </View>
                 </ScrollView>
             </KeyboardAvoidingView>

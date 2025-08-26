@@ -1,7 +1,7 @@
 import { Image, Text, View } from 'react-native';
 import { headerStyle } from './headerStyle';
 
-import data from "../../assets/data/layout.json";
+import data from "@/assets/data/onboarding.json";
 
 export default function Header() {
     return (
