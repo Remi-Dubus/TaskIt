@@ -36,6 +36,7 @@ export type buttonType<T extends object> = {
 }
 
 export type taskType = {
+    id?: string;
     title: string;
     priority: number;
     date: Date;

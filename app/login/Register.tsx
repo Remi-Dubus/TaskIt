@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { KeyboardAvoidingView, Platform, ScrollView, Text, View } from "react-native";
 import Toast from "react-native-toast-message";
 
-import Button from "@/components/button/Button";
+import SubmitButton from "@/components/button/SubmitButton";
 import { register } from "@/services/auth/auth";
 import { showToast } from "@/utils/toast";
 import { resolverSchema } from "@/utils/validation";
@@ -59,7 +59,7 @@ export default function Register() {
                     <FloatingLabelInput control={control} name="password" label={data.password} autoCapitalize="none" secureTextEntry errors={errors}/>
                     <FloatingLabelInput control={control} name="confirmPassword" label={data.confirmPassword} autoCapitalize="none" secureTextEntry errors={errors}/>
 
-                    <Button buttonText={data.register} onSubmit={onSubmit} handleSubmit={handleSubmit}/>
+                    <SubmitButton buttonText={data.register} onSubmit={onSubmit} handleSubmit={handleSubmit}/>
                 </View>
             </ScrollView>
             <Toast position="top"/>

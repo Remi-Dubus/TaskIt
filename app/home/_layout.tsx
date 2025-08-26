@@ -3,6 +3,10 @@ import { Slot, useRouter } from "expo-router";
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 
+import Header from "@/components/layout/Header";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { layoutStyle } from "./layoutStyle";
+
 export default function HomeLayout() {
     const [loading, setLoading] = useState(true);
     const router = useRouter();
@@ -19,5 +23,10 @@ export default function HomeLayout() {
 
     if (loading) return null;
 
-    return <Slot />;
+    return (
+        <SafeAreaView style={layoutStyle.view}>
+            <Header />
+            <Slot />
+        </SafeAreaView>
+    );
 }

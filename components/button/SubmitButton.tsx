@@ -1,7 +1,7 @@
 import { Text, TouchableOpacity } from "react-native";
 
 import { buttonType } from "@/types/definition";
-import { buttonStyle } from "./buttonStyle";
+import { buttonStyle } from "./submitButtonStyle";
 
 export default function Button<T extends object>({buttonText, handleSubmit, onSubmit}: buttonType<T>) {
     return (

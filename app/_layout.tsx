@@ -11,8 +11,6 @@ export default function RootLayout() {
 
       if(hasSeenOnboarding) {
         router.replace("/login");
-      } else {
-        router.replace("/onboarding/welcome");
       }
     }
 
