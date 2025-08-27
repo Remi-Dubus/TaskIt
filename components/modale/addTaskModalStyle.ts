@@ -11,7 +11,7 @@ export const addTaskModalStyle = StyleSheet.create({
         marginHorizontal: 20
     },
     view: {
-        borderWidth: 8, 
+        borderWidth: 4, 
         borderRadius: 20,
         borderColor: COLORS.dark,
         marginHorizontal: 8,
