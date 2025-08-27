@@ -13,7 +13,7 @@ export default function Task( { task, isCheckedTask, toggleTask }: { task: taskT
                         width: 20,
                         height: 20,
                         borderRadius: 30,
-                        backgroundColor: task.priority === 1 ? COLORS.green : task.priority === 2 ? COLORS.orange : "red",
+                        backgroundColor: task.priority === 1 ? COLORS.green : task.priority === 2 ? COLORS.orange : COLORS.red,
                         justifyContent: "center",
                         alignItems: "center",
                     }}

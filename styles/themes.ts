@@ -3,10 +3,11 @@ export const COLORS = {
     dark: "#4D5155",
     lightGrey:"#DFDFDF",
     darkGrey: "#919191",
-    lightGreen: "#d7fdc1ff",
+    lightGreen: "#D7FDC1FF",
     green: "#37983B",
-    lightYellow: "#fffcd0ff",
-    orange: "#DD9428FF"
+    lightYellow: "#FFFCD0FF",
+    orange: "#DD9428FF",
+    red: "#B83111"
 }
 
 const BASE_SIZE = 16;
