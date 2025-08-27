@@ -1,7 +1,7 @@
 import { Control, Controller, FieldErrors } from "react-hook-form";
 import { Text, TouchableOpacity, View } from "react-native";
 
-import { FONT_SIZE } from "@/styles/themes";
+import { COLORS, FONT_SIZE } from "@/styles/themes";
 import { taskType } from "@/types/definition";
 import { inputStyle } from "./inputStyle";
 
@@ -25,7 +25,7 @@ export default function PriorityButton({ control, errors }: { control: Control<t
                                 width: 20,
                                 height: 20,
                                 borderRadius: 30,
-                                backgroundColor: value === 1 ? "green" : value === 2 ? "orange" : "red",
+                                backgroundColor: value === 1 ? COLORS.green : value === 2 ? COLORS.orange : COLORS.red,
                                 justifyContent: "center",
                                 alignItems: "center",
                                 marginTop: 12
