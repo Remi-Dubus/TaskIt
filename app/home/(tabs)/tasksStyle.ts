@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 import { COLORS, FONT_FAMILY, FONT_SIZE } from "@/styles/themes";
 
-export const todayTaskStyle = StyleSheet.create({
+export const tasksStyle = StyleSheet.create({
     view: { 
         flex: 1, 
         padding: 20, 
