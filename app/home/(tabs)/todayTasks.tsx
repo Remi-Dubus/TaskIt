@@ -8,7 +8,6 @@ import { showToast } from "@/utils/toast";
 
 import error from "@/assets/data/error.json";
 import data from "@/assets/data/task.json";
-import { COLORS } from "@/styles/themes";
 import { taskType } from "@/types/definition";
 import { todayTaskStyle } from "./todayTaskStyle";
 
@@ -29,7 +28,7 @@ export default function TodayTaskPage() {
     }, [])
     
     return (
-        <View style={{ flex: 1, padding: 20, borderWidth: 1, backgroundColor: COLORS.lightGreen }}>
+        <View style={todayTaskStyle.view}>
             <Text style={todayTaskStyle.title}>{data.todayTaskTitle}</Text>
             <TasksList tasksList={tasksList}/>
             <AddButton />

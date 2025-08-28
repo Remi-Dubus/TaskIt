@@ -9,7 +9,7 @@ export default function AddButton() {
     const [isVisibleModal, setIsVisibleModal] = useState<boolean>(false);
 
     return (
-        <View style={{flex: 1}}>
+        <View style={addButtonStyle.view}>
             <TouchableOpacity style={addButtonStyle.button} onPress={() => setIsVisibleModal(true)}>
                 <View style={addButtonStyle.buttonContainer}>
                     <Text style={addButtonStyle.buttonText}>+</Text>
