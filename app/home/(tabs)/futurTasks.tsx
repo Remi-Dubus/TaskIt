@@ -29,7 +29,7 @@ export default function FuturTasksPage() {
     
     return (
         <View style={tasksStyle.view}>
-            <Text style={tasksStyle.title}>{data.todayTaskTitle}</Text>
+            <Text style={tasksStyle.title}>{data.nextTwoDaysTaskTitle}</Text>
             <TasksList tasksList={tasksList}/>
             <AddButton tasksList={tasksList} setTasksList={setTasksList}/>
         </View>
