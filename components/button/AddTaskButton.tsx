@@ -3,9 +3,10 @@ import { Text, TouchableOpacity, View } from "react-native";
 
 import AddTaskModal from "../modale/AddTaskModal";
 
+import { addTaskType } from "@/types/definition";
 import { addButtonStyle } from "./addTaskButtonStyle";
 
-export default function AddButton() {
+export default function AddButton({ tasksList, setTasksList }: addTaskType) {
     const [isVisibleModal, setIsVisibleModal] = useState<boolean>(false);
 
     return (
@@ -16,7 +17,7 @@ export default function AddButton() {
                 </View>
             </TouchableOpacity>
 
-            <AddTaskModal isVisibleModal={isVisibleModal} setIsVisibleModal={setIsVisibleModal}/>
+            <AddTaskModal isVisibleModal={isVisibleModal} setIsVisibleModal={setIsVisibleModal} tasksList={tasksList} setTasksList={setTasksList}/>
         </View>
     )
 }

@@ -11,11 +11,22 @@ import FloatingLabelInput from "../input/FloatingLabelInput";
 import FloatingLabelTextArea from "../input/FloatingLabelTextArea";
 import PriorityButton from "../input/PriorityButton";
 
-import { modalType, taskType } from "@/types/definition";
+import { taskType } from "@/types/definition";
 import data from "../../assets/data/addTask.json";
 import { addTaskModalStyle } from "./addTaskModalStyle";
 
-export default function AddTaskModal({ isVisibleModal, setIsVisibleModal }: modalType) {
+export default function AddTaskModal(
+    { 
+        isVisibleModal, 
+        setIsVisibleModal,
+        tasksList, 
+        setTasksList
+    }: {
+        isVisibleModal: boolean,
+        setIsVisibleModal: (bool: boolean) => void,
+        tasksList: taskType[],
+        setTasksList: (tasks: taskType[]) => void     
+    }) {
     // Call zod schema for resolver
     const validation = addTaskValidation;
     
@@ -31,7 +42,7 @@ export default function AddTaskModal({ isVisibleModal, setIsVisibleModal }: moda
             priority: 1
         }
     });
-    
+
     // Submit the data to database
     const onSubmit = async (data: taskType) => {
         const result = await createTask(data);
@@ -40,7 +51,8 @@ export default function AddTaskModal({ isVisibleModal, setIsVisibleModal }: moda
             result && showToast("error", result?.message);
         } else {
             result && showToast("success", result?.message);
-            reset;
+            result.task && setTasksList( [...tasksList, result.task]);
+            reset();
             setIsVisibleModal(false);
         }
     };
