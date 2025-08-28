@@ -31,7 +31,7 @@ export default function TodayTaskPage() {
         <View style={todayTaskStyle.view}>
             <Text style={todayTaskStyle.title}>{data.todayTaskTitle}</Text>
             <TasksList tasksList={tasksList}/>
-            <AddButton />
+            <AddButton tasksList={tasksList} setTasksList={setTasksList}/>
         </View>
     );
-}      
+}
