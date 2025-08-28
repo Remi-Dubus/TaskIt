@@ -52,9 +52,9 @@ export default function AddTaskModal({ isVisibleModal, setIsVisibleModal }: moda
             animationType="slide" 
             onRequestClose={() => setIsVisibleModal(false)}
         >   
-            <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ flex: 1}}>
+            <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={addTaskModalStyle.view}>
                 <ScrollView keyboardShouldPersistTaps="handled" style={{ flex: 1 }}>
-                    <View style={addTaskModalStyle.view}>
+                    <View style={addTaskModalStyle.modal}>
                         <Text style={addTaskModalStyle.title}>{data.title}</Text>
                         
                         <View style={addTaskModalStyle.dateAndPriority}>

@@ -10,7 +10,7 @@ export default function TasksList({ tasksList }: { tasksList: taskType[]}) {
     if (!tasksList || tasksList.length === 0) {
         return (
             <View style={{ flex: 1 }}>
-                <Text>{data.noTask}</Text>
+                <Text style={tasksListStyle.text}>{data.noTask}</Text>
             </View>
         );
     }
