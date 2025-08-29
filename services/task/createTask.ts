@@ -31,23 +31,32 @@ export async function createTask(task: taskType) {
 
     try {
         // Try to add new task on database
-        await addDoc(collection(db, "user", user.uid, "task"), {
+        const result = await addDoc(collection(db, "user", user.uid, "task"), {
             title: title,
             description: description ? description : "",
             priority: priority,
             date: date,
             done: false
         });
+        
+        const newTask = {
+            id: result.id,
+            title: title,
+            description: description ? description : "",
+            priority: priority,
+            date: date,
+            done: false
+        };
 
         return {
             success: true,
             message: "La tâche a bien été crée.",
-            task: task
-        }
+            task: newTask
+        }; 
     } catch {
         return {
             success: false,
             message: error.default
-        }
+        };
     }
 }
