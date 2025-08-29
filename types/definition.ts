@@ -43,7 +43,12 @@ export type taskType = {
     description?: string;
 }
 
+export type addTaskType = {
+    tasksList: taskType[];
+    setTasksList: (tasks: taskType[]) => void
+}
+
 export type modalType = {
-    isVisibleModal: boolean,
+    isVisibleModal: boolean;
     setIsVisibleModal: (bool: boolean) => void 
 }

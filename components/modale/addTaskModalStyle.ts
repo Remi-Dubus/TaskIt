@@ -1,6 +1,9 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 
 import { COLORS, FONT_FAMILY, FONT_SIZE } from "@/styles/themes";
+
+// Get dimensions of the device
+const { height } = Dimensions.get("window");
 
 export const addTaskModalStyle = StyleSheet.create({
     title: {
@@ -11,10 +14,15 @@ export const addTaskModalStyle = StyleSheet.create({
         marginHorizontal: 20
     },
     view: {
+        flex: 1, 
+        backgroundColor: "rgba(0,0,0,0.5)"
+    },
+    modal: {
         borderWidth: 4, 
         borderRadius: 20,
         borderColor: COLORS.dark,
         marginHorizontal: 8,
+        marginTop: height / 8,
         backgroundColor: COLORS.light,
         paddingHorizontal: 8,
         paddingTop: 8,
