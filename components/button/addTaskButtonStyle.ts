@@ -1,24 +1,21 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 
 import { COLORS } from "@/styles/themes";
 
-// Get dimensions of the device
-const { width, height } = Dimensions.get("window");
-
 export const addButtonStyle = StyleSheet.create({
     view: { 
-        position: "absolute", 
-        top: height - 10, 
-        left: width  / 2 
+        position: "absolute",
+        bottom: 10,
+        alignSelf: "center"
     },
     button: {
         height: 70,
         width: 70,
-        position: "absolute",
-        bottom: 130,
-        left: "50%",
-        transform: [{translateX: -35}],
-        elevation: 5
+        borderRadius: 35,
+        backgroundColor: COLORS.dark,
+        elevation: 5,
+        justifyContent: "center",
+        alignItems: "center"
     },
     buttonContainer: {
         backgroundColor: COLORS.dark,

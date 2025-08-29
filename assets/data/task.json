@@ -1,5 +1,7 @@
 {
     "todayTaskTitle": "Tâches de la journée en cours",
-    "nextTwoDaysTaskTitle": "Tâches des 2 prochains jours.",
+    "futurTasksTitle": "Tâches à venir",
+    "nextTwoDaysTaskTitle": "Tâches des 2 prochains jours",
+    "tasksOfTheMonthTitle": "Tâches du mois",
     "noTask": "Aucune tâche à afficher."
 }
