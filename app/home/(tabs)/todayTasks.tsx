@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 
 import AddButton from "@/components/button/AddTaskButton";
 import TasksList from "@/components/tasksList/TasksList";
@@ -29,8 +29,10 @@ export default function TodayTasksPage() {
     
     return (
         <View style={tasksStyle.view}>
-            <Text style={tasksStyle.title}>{data.todayTaskTitle}</Text>
-            <TasksList tasksList={tasksList}/>
+            <ScrollView contentContainerStyle={tasksStyle.scrollView}>
+                <Text style={tasksStyle.title}>{data.todayTaskTitle}</Text>
+                <TasksList title={null} tasksList={tasksList}/>
+            </ScrollView>
             <AddButton tasksList={tasksList} setTasksList={setTasksList}/>
         </View>
     );
