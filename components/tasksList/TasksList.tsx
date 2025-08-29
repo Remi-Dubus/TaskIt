@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { Text, View, VirtualizedList } from "react-native";
+import { Text, View } from "react-native";
 
 import data from "@/assets/data/task.json";
 import { taskType } from "@/types/definition";
 import Task from "./Task";
 import { tasksListStyle } from "./tasksListStyle";
 
-export default function TasksList({ tasksList }: { tasksList: taskType[]}) {
+export default function TasksList({ title, tasksList }: { title: string | null, tasksList: taskType[]}) {
     if (!tasksList || tasksList.length === 0) {
         return (
             <View style={{ flex: 1 }}>
@@ -29,19 +29,18 @@ export default function TasksList({ tasksList }: { tasksList: taskType[]}) {
     };
 
     return (
-        <View style={tasksListStyle.list}>
-            <VirtualizedList
-                data={tasksList}
-                initialNumToRender={50}
-                renderItem={({item}) => item.id ? (<Task 
-                    task={item}
-                    isCheckedTask={!!isCheckedTask[item.id]}
-                    toggleTask={() => item.id && toggleTask(item.id)}/>
-                ): null}
-                keyExtractor={(item, index) => item.id?.toString() ?? index.toString()}
-                getItemCount={getTasksCount}
-                getItem={getTasks}
-            />
+        <View style={[tasksListStyle.list, !title && {paddingTop: 30}]}>
+            { title && <Text style={tasksListStyle.title}>{title}</Text> }
+            {tasksList.map((item) => 
+                item.id ? (
+                    <Task
+                        key={item.id}
+                        task={item}
+                        isCheckedTask={!!isCheckedTask[item.id]}
+                        toggleTask={() => item.id && toggleTask(item.id)}
+                    />
+                ) : null
+            )}
         </View>
     )
 }

@@ -8,7 +8,15 @@ export const tasksListStyle = StyleSheet.create({
         borderColor: COLORS.dark,
         backgroundColor: COLORS.light,
         paddingHorizontal: 20,
-        paddingVertical: 30
+        paddingBottom: 30,
+        marginBottom: 10
+    },
+    title: {
+        marginVertical: 10,
+        fontFamily: FONT_FAMILY.title,
+        fontSize: FONT_SIZE.secondTitle,
+        color: COLORS.dark,
+        textAlign: "center"
     },
     text: {
         marginTop: 30,
