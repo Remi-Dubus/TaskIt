@@ -6,7 +6,7 @@ export default function convertTasksListToFuturTaskList(tasksList: taskType[]) {
     let currentMonthTasks: taskType[] = [];
 
     const begginOfNextDay = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0);
-    const endOfNextTwoDays = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 23, 59, 59);
+    const endOfNextTwoDays = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 2, 23, 59, 59);
     const endOfLastDayOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 1, 0, 0, 0);
 
     for(const task of tasksList) {
