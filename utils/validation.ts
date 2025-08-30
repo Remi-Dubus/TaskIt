@@ -34,3 +34,4 @@ const taskDataSchema = z.object({
 });
 
 export const addTaskValidation = taskDataSchema.omit({ id: true, done: true, picture: true });
+export const updateDoneValidation = taskDataSchema.pick({ id: true, done: true });

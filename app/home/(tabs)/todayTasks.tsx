@@ -31,7 +31,7 @@ export default function TodayTasksPage() {
         <View style={tasksStyle.view}>
             <ScrollView contentContainerStyle={tasksStyle.scrollView}>
                 <Text style={tasksStyle.title}>{data.todayTaskTitle}</Text>
-                <TasksList title={null} tasksList={tasksList}/>
+                <TasksList title={null} tasksList={tasksList} setTasksList={setTasksList}/>
             </ScrollView>
             <AddButton tasksList={tasksList} setTasksList={setTasksList}/>
         </View>

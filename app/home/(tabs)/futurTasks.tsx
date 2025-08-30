@@ -41,8 +41,8 @@ export default function FuturTasksPage() {
         <View style={tasksStyle.view}>
             <ScrollView contentContainerStyle={tasksStyle.scrollView}>
                 <Text style={tasksStyle.title}>{data.futurTasksTitle}</Text>
-                <TasksList title={data.nextTwoDaysTaskTitle} tasksList={nextTwoDayTasksList}/>
-                <TasksList title={data.tasksOfTheMonthTitle} tasksList={currentMonthTasksList}/>
+                <TasksList title={data.nextTwoDaysTaskTitle} tasksList={nextTwoDayTasksList} setTasksList={setNextTwoDayTasksList}/>
+                <TasksList title={data.tasksOfTheMonthTitle} tasksList={currentMonthTasksList} setTasksList={setCurrentMonthTasksList}/>
             </ScrollView>
         <AddButton tasksList={tasksList} setTasksList={setTasksList}/>
         </View>
