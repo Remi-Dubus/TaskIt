@@ -1,7 +1,8 @@
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Text, View } from "react-native";
 
 import { COLORS } from "@/styles/themes";
 import { taskType } from "@/types/definition";
+import CheckBox from "../task/CkeckBox";
 import TaskDate from "../task/TaskDate";
 import { taskStyle } from "./taskStyle";
 
@@ -24,17 +25,9 @@ export default function Task( { task, isCheckedTask, toggleTask }: { task: taskT
                         alignItems: "center",
                     }}
                 />
-                { beginOfTheDay <= new Date(task.date) && endOfTheDay >= new Date(task.date) ? (
-                    <View style={taskStyle.checkbox}>
-                        <TouchableOpacity 
-                            style={[taskStyle.box, isCheckedTask && {borderColor: COLORS.green}]} 
-                            onPress={() => task.id && toggleTask(task.id)}>
-                        </TouchableOpacity>
-                        {task.id && isCheckedTask && (
-                            <Image source={require("@/assets/images/checked.png" )} style={taskStyle.check} />
-                        )}
-                    </View>
-                    ) : ( <TaskDate date={task.date}/> )
+                { beginOfTheDay <= new Date(task.date) && endOfTheDay >= new Date(task.date)    
+                    ? ( <CheckBox task={task} isCheckedTask={isCheckedTask} toggleTask={() => task.id && toggleTask(task.id)} />)
+                    : ( <TaskDate date={task.date}/> )
                 } 
             </View>
             <Text style={taskStyle.text}>{task.title}</Text>
