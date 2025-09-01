@@ -15,27 +15,6 @@ export const taskStyle = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center"
     },
-    checkbox: {
-        height:30, 
-        display: "flex",
-        justifyContent: "center"
-    },
-    box: {
-        height: 25,
-        width: 25,
-        borderColor: COLORS.dark,
-        borderWidth: 4,
-        marginHorizontal: 8,
-        zIndex: 2
-    },
-    check: {
-        width: 30, 
-        height: 30, 
-        position: "absolute", 
-        zIndex: 1, 
-        left: "20%",
-        bottom: 4 
-    },
     text: {
         width: "80%",
         color: COLORS.dark,
