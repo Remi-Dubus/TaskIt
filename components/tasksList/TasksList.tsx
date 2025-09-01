@@ -19,10 +19,6 @@ export default function TasksList({ title, tasksList, setTasksList }: { title: s
         );
     }
 
-    const getTasksCount = (tasks: taskType[]) => tasks.length;
-
-    const getTasks = (tasks: taskType[], index: number) => tasks[index];
-    
     const toggleTask = async (id: string) => {
         const findTaskById = tasksList.find( task => task.id === id);
         
