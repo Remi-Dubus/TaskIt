@@ -40,6 +40,7 @@ export type taskType = {
     title: string;
     priority: number;
     date: Date;
+    done?: boolean;
     description?: string;
 }
 

@@ -32,7 +32,7 @@ export default async function readTodayTasks () {
                 return {
                     id: doc.id,
                     ...data,
-                    date: doc.data().date?.toDate().toLocaleString()
+                    date: doc.data().date?.toDate().toISOString()
                 }
             })
             .sort((a, b) => (b.priority ?? 1) - (a.priority ?? 1));
