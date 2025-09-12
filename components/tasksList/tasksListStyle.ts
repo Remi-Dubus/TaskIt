@@ -17,12 +17,5 @@ export const tasksListStyle = StyleSheet.create({
         fontSize: FONT_SIZE.secondTitle,
         color: COLORS.dark,
         textAlign: "center"
-    },
-    text: {
-        marginTop: 30,
-        fontFamily: FONT_FAMILY.paragraphe,
-        fontSize: FONT_SIZE.paragraphe,
-        color: COLORS.dark,
-        textAlign: "center"
     }
 });
