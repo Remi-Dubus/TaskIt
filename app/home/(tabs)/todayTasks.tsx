@@ -9,7 +9,7 @@ import { showToast } from "@/utils/toast";
 import error from "@/assets/data/error.json";
 import data from "@/assets/data/task.json";
 import { taskType } from "@/types/definition";
-import { tasksStyle } from "./tasksStyle";
+import { tasksPageStyle } from "./tasksPageStyle";
 
 export default function TodayTasksPage() {
     const [tasksList, setTasksList] = useState<taskType[]>([]);
@@ -28,11 +28,17 @@ export default function TodayTasksPage() {
     }, [])
     
     return (
-        <View style={tasksStyle.view}>
-            <ScrollView contentContainerStyle={tasksStyle.scrollView}>
-                <Text style={tasksStyle.title}>{data.todayTaskTitle}</Text>
-                <TasksList title={null} tasksList={tasksList} setTasksList={setTasksList}/>
-            </ScrollView>
+        <View style={tasksPageStyle.view}>
+            <Text style={tasksPageStyle.title}>{data.todayTaskTitle}</Text>
+            {!tasksList || tasksList.length === 0 ? (
+                <View style={{ flex: 1 }}>
+                    <Text style={[tasksPageStyle.text, {textAlign: "center", width: "100%"}]}>{data.noTask}</Text>
+                </View>
+            ) : (
+                <ScrollView contentContainerStyle={tasksPageStyle.scrollView}>
+                    <TasksList title={null} tasksList={tasksList} setTasksList={setTasksList}/>
+                </ScrollView>
+            )}
             <AddButton tasksList={tasksList} setTasksList={setTasksList}/>
         </View>
     );
