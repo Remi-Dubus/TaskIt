@@ -24,12 +24,14 @@ export const addTaskModalStyle = StyleSheet.create({
         marginHorizontal: 8,
         marginTop: height / 8,
         backgroundColor: COLORS.light,
-        paddingHorizontal: 8,
+        paddingHorizontal: 28,
         paddingTop: 8,
         paddingBottom: 36,
     },
     dateAndPriority: { 
+        flex: 1,
         display: "flex", 
+        justifyContent: "space-around",
         flexDirection: "row", 
     }
 });
