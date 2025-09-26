@@ -24,6 +24,7 @@ export default function FloatingLabelTextArea<T extends object>({
           <TextInput
             placeholder=""
             style={[inputStyle.input, inputStyle.textArea]}
+            underlineColorAndroid="transparent"
             multiline={true}
             numberOfLines={10} 
             onChangeText={onChange}
@@ -48,4 +49,4 @@ export default function FloatingLabelTextArea<T extends object>({
       )}
     />
   );
-}
+};
