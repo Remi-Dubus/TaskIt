@@ -10,7 +10,7 @@ export default async function readAllTasks() {
     if(!user) return;
 
     try {
-        // Get collection of today tasks
+        // Get collection of all tasks
         const tasksCollection = query(
             collection(db, "user", user.uid, "task"),
         );
