@@ -14,7 +14,9 @@ export const tasksPageStyle = StyleSheet.create({
         marginHorizontal: 20
     },
     title: {
-        marginBottom: 30,
+        marginBottom: 20,
+        marginTop: 20,
+        marginHorizontal: 10,
         fontFamily: FONT_FAMILY.title,
         fontSize: FONT_SIZE.mainTitle,
         color: COLORS.dark,
