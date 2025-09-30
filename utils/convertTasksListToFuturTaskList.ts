@@ -18,7 +18,7 @@ export default function convertTasksListToFuturTaskList(tasksList: taskType[]) {
     }
 
     return {
-        "nextTwoDayTask": nextTwoDaysTasks,
-        "currentMonthTask": currentMonthTasks
+        "nextTwoDayTask": nextTwoDaysTasks.sort((a, b) => (b.priority ?? 1) - (a.priority ?? 1)),
+        "currentMonthTask": currentMonthTasks.sort((a, b) => (b.priority ?? 1) - (a.priority ?? 1))
     };
 }

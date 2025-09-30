@@ -26,6 +26,7 @@ export default function FloatingLabelInput<T extends object>({
           <TextInput
             placeholder=""
             style={inputStyle.input}
+            underlineColorAndroid="transparent"
             autoCapitalize={autoCapitalize}
             secureTextEntry={secureTextEntry}
             onChangeText={onChange}
@@ -50,4 +51,4 @@ export default function FloatingLabelInput<T extends object>({
       )}
     />
   );
-}
+};

@@ -1,22 +1,25 @@
 import { useEffect, useState } from "react";
 import { ScrollView, Text, View } from "react-native";
 
-import AddButton from "@/components/button/AddTaskButton";
 import TasksList from "@/components/tasksList/TasksList";
-import readTodayTasks from "@/services/task/readTodayTasks";
+import { readAllDoneTasks } from "@/services/task/readAllTasks";
+import converDoneTasksList from "@/utils/convertDoneTasksList";
 import { showToast } from "@/utils/toast";
 
 import error from "@/assets/data/error.json";
 import data from "@/assets/data/task.json";
+
+import { COLORS } from "@/styles/themes";
 import { taskType } from "@/types/definition";
 import { tasksPageStyle } from "./tasksPageStyle";
 
-export default function TodayTasksPage() {
+export default function DoneTasksPage() {
     const [tasksList, setTasksList] = useState<taskType[]>([]);
+    const [yesterdayTasks, setYesterdayTasks] = useState<taskType[]>([]);
 
     useEffect(()=> {
         const fetchTasks = async() => {
-            const todayTasks = await readTodayTasks();
+            const todayTasks = await readAllDoneTasks();
 
             if(todayTasks?.success && todayTasks.result) {
                 setTasksList(todayTasks?.result);
@@ -27,19 +30,24 @@ export default function TodayTasksPage() {
         fetchTasks();
     }, [])
     
+    // Convert tasks list to yesterday done tasks
+    useEffect( () => {
+        const convertTasksList = converDoneTasksList(tasksList);
+        setYesterdayTasks(convertTasksList.yesterdayDoneTasks);
+    }, [tasksList]);
+
     return (
-        <View style={tasksPageStyle.view}>
-            <Text style={tasksPageStyle.title}>{data.todayTaskTitle}</Text>
-            {!tasksList || tasksList.length === 0 ? (
+        <View style={[tasksPageStyle.view, { backgroundColor: COLORS.lightGrey}]}>
+            <Text style={tasksPageStyle.title}>{data.doneTasksTitle}</Text>
+            {!yesterdayTasks || yesterdayTasks.length === 0 ? (
                 <View style={{ flex: 1 }}>
                     <Text style={[tasksPageStyle.text, {textAlign: "center", width: "100%"}]}>{data.noTask}</Text>
                 </View>
             ) : (
                 <ScrollView contentContainerStyle={tasksPageStyle.scrollView}>
-                    <TasksList title={null} tasksList={tasksList} setTasksList={setTasksList}/>
+                    { yesterdayTasks.length > 0 && (<TasksList title={data.yesterdayDoneTaskTitle} tasksList={yesterdayTasks} setTasksList={setYesterdayTasks}/>)}
                 </ScrollView>
             )}
-            <AddButton tasksList={tasksList} setTasksList={setTasksList}/>
         </View>
     );
-}
+};

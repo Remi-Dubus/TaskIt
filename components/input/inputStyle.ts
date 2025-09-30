@@ -4,23 +4,24 @@ import { COLORS, FONT_FAMILY, FONT_SIZE } from "@/styles/themes";
 
 export const inputStyle = StyleSheet.create({
     inputText: {
-        marginTop: 8,
-        height: 80
+        marginTop: 30,
+        height: 50,
+        borderBottomWidth: 1,
+        borderColor: COLORS.darkGrey,
+        borderRadius: 6,
+        paddingHorizontal: 10,
+        justifyContent: "center",
     },
     label: {
         fontFamily: FONT_FAMILY.paragraphe,
         fontSize: FONT_SIZE.paragraphe,
     },
     input: {
-        height: 48,
-        borderBottomWidth: 1,
         fontFamily: FONT_FAMILY.paragraphe,
         fontSize: FONT_SIZE.paragraphe,
-        borderColor: COLORS.lightGrey,
-        borderRadius: 6,
-        paddingHorizontal: 10,
-        paddingTop: 10,
-        paddingBottom: 0
+        padding: 0,
+        margin: 0,
+        height: "80%",
     },
     textArea: {
         height: 180,
