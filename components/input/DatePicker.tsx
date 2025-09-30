@@ -19,12 +19,15 @@ export default function DatePicker({control, errors }: {control: Control<taskTyp
             name="date"
             render={({ field: { onChange, value } }) => (
                 <View style={{  width: "48%" }}>
-                    <View style={inputStyle.input}>
+                    <View style={[inputStyle.input, { height: "100%" }] }>
                         <TouchableOpacity onPress={() => setShow(true)} style={{ position: "relative" }}>
                             <Text style={[
                                 inputStyle.label,
                                 {
                                     top: value ? -16 : 12,
+                                    borderBottomWidth: 1,
+                                    borderBottomColor: COLORS.darkGrey,
+                                    paddingBottom: 6,
                                     fontSize: value ? FONT_SIZE.paragraphe * 1.2: FONT_SIZE.paragraphe,
                                     color: value ? COLORS.dark : COLORS.darkGrey,
                                     position: "absolute",
@@ -52,4 +55,4 @@ export default function DatePicker({control, errors }: {control: Control<taskTyp
             )}
         />
     )
-}
+};

@@ -2,11 +2,11 @@ import { StyleSheet } from "react-native";
 
 import { COLORS, FONT_FAMILY, FONT_SIZE } from "@/styles/themes";
 
-export const tasksStyle = StyleSheet.create({
+export const tasksPageStyle = StyleSheet.create({
     view: { 
         flex: 1, 
-        backgroundColor: COLORS.lightGreen, 
-        position: "relative" 
+        position: "relative",
+        backgroundColor: COLORS.lightGreen,
     },
     scrollView: {
         paddingTop: 20,
@@ -14,10 +14,20 @@ export const tasksStyle = StyleSheet.create({
         marginHorizontal: 20
     },
     title: {
-        marginBottom: 30,
+        marginBottom: 20,
+        marginTop: 20,
+        marginHorizontal: 10,
         fontFamily: FONT_FAMILY.title,
         fontSize: FONT_SIZE.mainTitle,
         color: COLORS.dark,
         textAlign: "center"
+    },
+    text: {
+        width: "80%",
+        color: COLORS.dark,
+        fontFamily: FONT_FAMILY.paragraphe,
+        fontSize: FONT_SIZE.paragraphe,
+        marginLeft: 4,
+        paddingRight: 8
     }
 });
