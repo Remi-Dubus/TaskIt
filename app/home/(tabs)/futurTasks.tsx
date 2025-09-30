@@ -3,12 +3,13 @@ import { ScrollView, Text, View } from "react-native";
 
 import AddButton from "@/components/button/AddTaskButton";
 import TasksList from "@/components/tasksList/TasksList";
-import readAllTasks from "@/services/task/readAllTasks";
+import { readAllTasks } from "@/services/task/readAllTasks";
 import convertTasksListToFuturTaskList from "@/utils/convertTasksListToFuturTaskList";
 import { showToast } from "@/utils/toast";
 
 import error from "@/assets/data/error.json";
 import data from "@/assets/data/task.json";
+
 import { taskType } from "@/types/definition";
 import { tasksPageStyle } from "./tasksPageStyle";
 
