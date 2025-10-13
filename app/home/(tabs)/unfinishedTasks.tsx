@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { ScrollView, Text, View } from "react-native";
 
-import AddButton from "@/components/button/AddTaskButton";
 import TasksList from "@/components/tasksList/TasksList";
 import { showToast } from "@/utils/toast";
 
@@ -40,7 +39,6 @@ export default function UnfinishedTasksPage() {
                     <TasksList title={null} tasksList={tasksList} setTasksList={setTasksList}/>
                 </ScrollView>
             )}
-            <AddButton tasksList={tasksList} setTasksList={setTasksList}/>
         </View>
     );
 }
