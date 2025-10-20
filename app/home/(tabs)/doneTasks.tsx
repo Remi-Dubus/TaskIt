@@ -16,11 +16,11 @@ import { tasksPageStyle } from "./tasksPageStyle";
 export default function DoneTasksPage() {
     const [tasksList, setTasksList] = useState<taskType[]>([]);
     const [yesterdayTasks, setYesterdayTasks] = useState<taskType[]>([]);
+    const [threeLastDaysTasks, setThreeLastDaysTasks] = useState<taskType[]>([]);
 
     useEffect(()=> {
         const fetchTasks = async() => {
             const todayTasks = await readAllDoneTasks();
-
             if(todayTasks?.success && todayTasks.result) {
                 setTasksList(todayTasks?.result);
             } else {
@@ -29,23 +29,27 @@ export default function DoneTasksPage() {
         }
         fetchTasks();
     }, [])
-    
+
     // Convert tasks list to yesterday done tasks
     useEffect( () => {
-        const convertTasksList = converDoneTasksList(tasksList);
-        setYesterdayTasks(convertTasksList.yesterdayDoneTasks);
+        if(tasksList.length > 0) {
+            const convertTasksList = converDoneTasksList(tasksList);
+            setYesterdayTasks(convertTasksList.yesterdayDoneTasks);
+            setThreeLastDaysTasks(convertTasksList.threeLastDaysTasks);
+        }
     }, [tasksList]);
 
     return (
         <View style={[tasksPageStyle.view, { backgroundColor: COLORS.lightGrey}]}>
             <Text style={tasksPageStyle.title}>{data.doneTasksTitle}</Text>
-            {!yesterdayTasks || yesterdayTasks.length === 0 ? (
+            {(!yesterdayTasks || yesterdayTasks.length === 0) && (!threeLastDaysTasks || threeLastDaysTasks.length === 0) ? (
                 <View style={{ flex: 1 }}>
                     <Text style={[tasksPageStyle.text, {textAlign: "center", width: "100%"}]}>{data.noTask}</Text>
                 </View>
             ) : (
                 <ScrollView contentContainerStyle={tasksPageStyle.scrollView}>
                     { yesterdayTasks.length > 0 && (<TasksList title={data.yesterdayDoneTaskTitle} tasksList={yesterdayTasks} setTasksList={setYesterdayTasks}/>)}
+                    { threeLastDaysTasks.length > 0 && (<TasksList title={data.threeLastsDaysDoneTasksTitle} tasksList={threeLastDaysTasks} setTasksList={setThreeLastDaysTasks}/>)}
                 </ScrollView>
             )}
         </View>
