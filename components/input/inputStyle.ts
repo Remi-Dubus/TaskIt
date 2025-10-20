@@ -23,6 +23,13 @@ export const inputStyle = StyleSheet.create({
         margin: 0,
         height: "80%",
     },
+    dateValue: {
+        marginTop: 12, 
+        borderBottomWidth: 1, 
+        borderBottomColor: COLORS.darkGrey,
+        paddingBottom: 6, 
+        width: "60%"
+    },
     textArea: {
         height: 180,
         textAlignVertical: "top",

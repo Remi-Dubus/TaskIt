@@ -25,7 +25,7 @@ export default function DatePicker({control, errors }: {control: Control<taskTyp
                                 inputStyle.label,
                                 {
                                     top: value ? -16 : 12,
-                                    borderBottomWidth: 1,
+                                    borderBottomWidth: !value ? 1 : 0,
                                     borderBottomColor: COLORS.darkGrey,
                                     paddingBottom: 6,
                                     fontSize: value ? FONT_SIZE.paragraphe * 1.2: FONT_SIZE.paragraphe,
@@ -35,7 +35,11 @@ export default function DatePicker({control, errors }: {control: Control<taskTyp
                                 }
                             ]}>Date</Text>
                         </TouchableOpacity>
-                        {value && <Text style={[inputStyle.label, { marginTop: 12 }]}>{new Date(value).toLocaleDateString()}</Text>}
+                        {value && 
+                            <Text style={[inputStyle.label, inputStyle.dateValue]}>
+                                {new Date(value).toLocaleDateString()}
+                            </Text>
+                        }
                     </View>
 
                     {show && (
