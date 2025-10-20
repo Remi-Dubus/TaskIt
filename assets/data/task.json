@@ -5,6 +5,8 @@
     "doneTasksTitle": "Tâches terminées",
     "nextTwoDaysTaskTitle": "Tâches des 2 prochains jours",
     "tasksOfTheMonthTitle": "Tâches du mois",
-    "yesterdayDoneTaskTitle": "Tâche terminées hier",
+    "yesterdayDoneTaskTitle": "Tâches terminées hier",
+    "threeLastsDaysDoneTasksTitle": "Tâches terminées des trois derniers jours",
+    "lastMonthDoneTasksTitle": "Tâches terminées le mois précédent",
     "noTask": "Aucune tâche à afficher."
 }
