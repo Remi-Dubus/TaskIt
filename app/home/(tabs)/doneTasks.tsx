@@ -17,6 +17,7 @@ export default function DoneTasksPage() {
     const [tasksList, setTasksList] = useState<taskType[]>([]);
     const [yesterdayTasks, setYesterdayTasks] = useState<taskType[]>([]);
     const [threeLastDaysTasks, setThreeLastDaysTasks] = useState<taskType[]>([]);
+    const [lastMonthTasks, setLastMonthTasks] = useState<taskType[]>([]);
 
     useEffect(()=> {
         const fetchTasks = async() => {
@@ -36,13 +37,16 @@ export default function DoneTasksPage() {
             const convertTasksList = converDoneTasksList(tasksList);
             setYesterdayTasks(convertTasksList.yesterdayDoneTasks);
             setThreeLastDaysTasks(convertTasksList.threeLastDaysTasks);
+            setLastMonthTasks(convertTasksList.lastMonthDoneTasks);
         }
     }, [tasksList]);
+
+    const isNoTask = (!yesterdayTasks || yesterdayTasks.length === 0) && (!threeLastDaysTasks || threeLastDaysTasks.length === 0) && (!lastMonthTasks ||lastMonthTasks.length === 0); 
 
     return (
         <View style={[tasksPageStyle.view, { backgroundColor: COLORS.lightGrey}]}>
             <Text style={tasksPageStyle.title}>{data.doneTasksTitle}</Text>
-            {(!yesterdayTasks || yesterdayTasks.length === 0) && (!threeLastDaysTasks || threeLastDaysTasks.length === 0) ? (
+            {isNoTask ? (
                 <View style={{ flex: 1 }}>
                     <Text style={[tasksPageStyle.text, {textAlign: "center", width: "100%"}]}>{data.noTask}</Text>
                 </View>
@@ -50,6 +54,7 @@ export default function DoneTasksPage() {
                 <ScrollView contentContainerStyle={tasksPageStyle.scrollView}>
                     { yesterdayTasks.length > 0 && (<TasksList title={data.yesterdayDoneTaskTitle} tasksList={yesterdayTasks} setTasksList={setYesterdayTasks}/>)}
                     { threeLastDaysTasks.length > 0 && (<TasksList title={data.threeLastsDaysDoneTasksTitle} tasksList={threeLastDaysTasks} setTasksList={setThreeLastDaysTasks}/>)}
+                    { lastMonthTasks.length > 0 && (<TasksList title={data.lastMonthDoneTasksTitle} tasksList={lastMonthTasks} setTasksList={setLastMonthTasks}/>)}
                 </ScrollView>
             )}
         </View>
