@@ -5,6 +5,7 @@ export default function converDoneTasksList(tasksList: taskType[]) {
     let yesterdayDoneTasks: taskType[] = [];
     let threeLastDaysTasks: taskType[] = [];
     let lastMonthDoneTasks: taskType[] = [];
+    let otherDoneTasks: taskType[] = [];
 
     const begginYesterday = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1, 0, 0, 0);
     const endYesterdayDays = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1, 23, 59, 59);
@@ -20,12 +21,15 @@ export default function converDoneTasksList(tasksList: taskType[]) {
             threeLastDaysTasks.push(task);
         } else if (taskDate >= endOfTheMonth && taskDate < endOfThreeLastDays) {
             lastMonthDoneTasks.push(task);
+        } else {
+            otherDoneTasks.push(task);
         }
     }
 
     return {
         "yesterdayDoneTasks" : yesterdayDoneTasks,
         "threeLastDaysTasks" : threeLastDaysTasks,
-        "lastMonthDoneTasks" : lastMonthDoneTasks
+        "lastMonthDoneTasks" : lastMonthDoneTasks,
+        "otherDoneTasks": otherDoneTasks
     };
 };
