@@ -80,8 +80,7 @@ export async function readAllDoneTasks() {
             success: true,
             result: tasksList as taskType[]
         }
-    } catch (errors) {
-        console.log(errors)
+    } catch {
         return {
             success: false,
             message: error.default
