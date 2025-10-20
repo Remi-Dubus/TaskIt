@@ -8,9 +8,9 @@ import error from "../../assets/data/error.json";
 const now = new Date();
 const beginOfTheDay = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0).toISOString();
 
-const user = auth.currentUser;
-
 export async function readAllTasks() {
+    const user = auth.currentUser;
+
     // Return if user doesn't exist
     if(!user) return;
 
@@ -48,6 +48,9 @@ export async function readAllTasks() {
 };
 
 export async function readAllDoneTasks() {
+    const user = auth.currentUser;
+
+    // Return if user doesn't exist
     if(!user) return;
 
     try {
@@ -77,7 +80,8 @@ export async function readAllDoneTasks() {
             success: true,
             result: tasksList as taskType[]
         }
-    } catch {
+    } catch (errors) {
+        console.log(errors)
         return {
             success: false,
             message: error.default
