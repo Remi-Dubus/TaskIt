@@ -18,6 +18,7 @@ export default function DoneTasksPage() {
     const [yesterdayTasks, setYesterdayTasks] = useState<taskType[]>([]);
     const [threeLastDaysTasks, setThreeLastDaysTasks] = useState<taskType[]>([]);
     const [lastMonthTasks, setLastMonthTasks] = useState<taskType[]>([]);
+    const [otherTasks, setOtherTasks] = useState<taskType[]>([]);
 
     useEffect(()=> {
         const fetchTasks = async() => {
@@ -38,10 +39,11 @@ export default function DoneTasksPage() {
             setYesterdayTasks(convertTasksList.yesterdayDoneTasks);
             setThreeLastDaysTasks(convertTasksList.threeLastDaysTasks);
             setLastMonthTasks(convertTasksList.lastMonthDoneTasks);
+            setOtherTasks(convertTasksList.otherDoneTasks);
         }
     }, [tasksList]);
 
-    const isNoTask = (!yesterdayTasks || yesterdayTasks.length === 0) && (!threeLastDaysTasks || threeLastDaysTasks.length === 0) && (!lastMonthTasks ||lastMonthTasks.length === 0); 
+    const isNoTask = (!yesterdayTasks || yesterdayTasks.length === 0) && (!threeLastDaysTasks || threeLastDaysTasks.length === 0) && (!lastMonthTasks || lastMonthTasks.length === 0) && (!otherTasks || otherTasks.length === 0); 
 
     return (
         <View style={[tasksPageStyle.view, { backgroundColor: COLORS.lightGrey}]}>
@@ -55,6 +57,7 @@ export default function DoneTasksPage() {
                     { yesterdayTasks.length > 0 && (<TasksList title={data.yesterdayDoneTaskTitle} tasksList={yesterdayTasks} setTasksList={setYesterdayTasks}/>)}
                     { threeLastDaysTasks.length > 0 && (<TasksList title={data.threeLastsDaysDoneTasksTitle} tasksList={threeLastDaysTasks} setTasksList={setThreeLastDaysTasks}/>)}
                     { lastMonthTasks.length > 0 && (<TasksList title={data.lastMonthDoneTasksTitle} tasksList={lastMonthTasks} setTasksList={setLastMonthTasks}/>)}
+                    { otherTasks.length > 0 && (<TasksList title={null} tasksList={otherTasks} setTasksList={setOtherTasks}/>)}
                 </ScrollView>
             )}
         </View>
