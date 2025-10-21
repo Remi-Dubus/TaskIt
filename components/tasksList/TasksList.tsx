@@ -5,7 +5,8 @@ import updateDoneTasks from "../../services/task/updateDoneTask";
 import ToastCustom from "../modale/ToastCustom";
 import Task from "./Task";
 
-import data from "@/assets/data/task.json";
+import error from "@/assets/data/error.json";
+
 import { resultStateType, taskType } from "@/types/definition";
 import { tasksListStyle } from "./tasksListStyle";
 
@@ -18,7 +19,7 @@ export default function TasksList({ title, tasksList, setTasksList }: { title: s
         const findTaskById = tasksList.find( task => task.id === id);
         
         if(!findTaskById) {
-            setResultState({ message: data.errorDefault, type: "success" });
+            setResultState({ message: error.default, type: "success" });
             setIsVisibleToastModal(true);
             return;
         }
@@ -26,7 +27,7 @@ export default function TasksList({ title, tasksList, setTasksList }: { title: s
         const result = await updateDoneTasks({id, isDone: findTaskById.done!});
 
         if(!result?.success) {
-            setResultState({ message: data.errorDefault, type: "success" });
+            setResultState({ message: error.default, type: "success" });
             setIsVisibleToastModal(true);
         } else {
             const updatedTasksList = tasksList.map( task => task.id === id ? {... task, done: !task.done} : task);

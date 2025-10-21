@@ -6,6 +6,7 @@ import TasksList from "@/components/tasksList/TasksList";
 import { readAllDoneTasks } from "@/services/task/readAllTasks";
 import converDoneTasksList from "@/utils/convertDoneTasksList";
 
+import error from "@/assets/data/error.json";
 import data from "@/assets/data/task.json";
 
 import { COLORS } from "@/styles/themes";
@@ -29,7 +30,7 @@ export default function DoneTasksPage() {
             if(todayTasks?.success && todayTasks.result) {
                 setTasksList(todayTasks?.result);
             } else {
-                setResultState({ message: data.errorDefault, type: "error" });
+                setResultState({ message: error.default, type: "error" });
                 setIsVisibleModal(true);
             }
         }

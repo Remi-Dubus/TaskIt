@@ -3,9 +3,11 @@ import { ScrollView, Text, View } from "react-native";
 
 import TasksList from "@/components/tasksList/TasksList";
 
-import data from "@/assets/data/task.json";
 import ToastCustom from "@/components/modale/ToastCustom";
 import readUnfinishedTasks from "@/services/task/readUnfinishedTask";
+
+import error from "@/assets/data/error.json";
+import data from "@/assets/data/task.json";
 
 import { COLORS } from "@/styles/themes";
 import { resultStateType, taskType } from "@/types/definition";
@@ -25,7 +27,7 @@ export default function UnfinishedTasksPage() {
             if(todayTasks?.success && todayTasks.result) {
                 setTasksList(todayTasks?.result);
             } else {
-                setResultState({ message: data.errorDefault, type: "error" });
+                setResultState({ message: error.default, type: "error" });
                 setIsVisibleModal(true);
             }
         }

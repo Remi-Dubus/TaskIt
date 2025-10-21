@@ -6,7 +6,9 @@ import ToastCustom from "@/components/modale/ToastCustom";
 import TasksList from "@/components/tasksList/TasksList";
 import readTodayTasks from "@/services/task/readTodayTasks";
 
+import error from "@/assets/data/error.json";
 import data from "@/assets/data/task.json";
+
 import { resultStateType, taskType } from "@/types/definition";
 import { tasksPageStyle } from "./tasksPageStyle";
 
@@ -24,7 +26,7 @@ export default function TodayTasksPage() {
             if(todayTasks?.success && todayTasks.result) {
                 setTasksList(todayTasks?.result);
             } else {
-                setResultState({ message: data.errorDefault, type: "error" });
+                setResultState({ message: error.default, type: "error" });
                 setIsVisibleModal(true);
             }
         }

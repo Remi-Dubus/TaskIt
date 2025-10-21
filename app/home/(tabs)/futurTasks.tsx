@@ -7,6 +7,7 @@ import TasksList from "@/components/tasksList/TasksList";
 import { readAllTasks } from "@/services/task/readAllTasks";
 import convertTasksListToFuturTaskList from "@/utils/convertTasksListToFuturTaskList";
 
+import error from "@/assets/data/error.json";
 import data from "@/assets/data/task.json";
 
 import { resultStateType, taskType } from "@/types/definition";
@@ -28,7 +29,7 @@ export default function FuturTasksPage() {
             if(futurTasksList?.success && futurTasksList.result) {
                 setTasksList(futurTasksList.result)
             } else {
-                setResultState({ message: data.errorDefault, type: "error" });
+                setResultState({ message: error.default, type: "error" });
                 setIsVisibleModal(true);
             }
         }
@@ -59,4 +60,4 @@ export default function FuturTasksPage() {
             <AddButton tasksList={tasksList} setTasksList={setTasksList}/>
         </View>
     );
-}
+};
