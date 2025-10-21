@@ -1,8 +1,8 @@
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { KeyboardAvoidingView, Modal, Platform, ScrollView, Text, View } from "react-native";
 
-import { showToast } from "@/utils/toast";
 import { addTaskValidation } from "@/utils/validation";
 import { createTask } from "../../services/task/createTask";
 import SubmitButton from "../button/SubmitButton";
@@ -10,10 +10,12 @@ import DatePicker from "../input/DatePicker";
 import FloatingLabelInput from "../input/FloatingLabelInput";
 import FloatingLabelTextArea from "../input/FloatingLabelTextArea";
 import PriorityButton from "../input/PriorityButton";
+import ToastCustom from "./ToastCustom";
 
-import { taskType } from "@/types/definition";
+import { resultStateType, taskType } from "@/types/definition";
 import data from "../../assets/data/addTask.json";
 import { addTaskModalStyle } from "./addTaskModalStyle";
+
 
 export default function AddTaskModal(
     { 
@@ -43,17 +45,27 @@ export default function AddTaskModal(
         }
     });
 
+    // Toast state
+    const [isVisibleToastModal, setIsVisibleToastModal] = useState<boolean>(false);
+    const [resultState, setResultState] = useState<resultStateType | null>(null);
+
     // Submit the data to database
     const onSubmit = async (data: taskType) => {
         const result = await createTask(data);
 
         if(!result?.success) {
-            result && showToast("error", result?.message);
+            result && setResultState({ message: result.message, type: "error" });
+            setIsVisibleToastModal(true)
         } else {
-            result && showToast("success", result?.message);
+            result && setResultState({ message: result.message, type: "success" });
+            setIsVisibleToastModal(true);
+
             result.task && setTasksList( [...tasksList, result.task]);
-            reset();
-            setIsVisibleModal(false);
+
+            setTimeout(() => {
+                reset();
+                setIsVisibleModal(false);
+            },2000);
         }
     };
 
@@ -64,6 +76,7 @@ export default function AddTaskModal(
             animationType="slide" 
             onRequestClose={() => setIsVisibleModal(false)}
         >   
+            <ToastCustom isVisibleModal={isVisibleToastModal} setIsVisibleModal={setIsVisibleToastModal} resultState={resultState}/>
             <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={addTaskModalStyle.view}>
                 <ScrollView keyboardShouldPersistTaps="handled" style={{ flex: 1 }}>
                     <View style={addTaskModalStyle.modal}>
@@ -82,5 +95,5 @@ export default function AddTaskModal(
                 </ScrollView>
             </KeyboardAvoidingView>
         </Modal>
-    )
-}
+    );
+};

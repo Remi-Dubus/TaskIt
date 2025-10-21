@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import { ScrollView, Text, View } from "react-native";
 
+import ToastCustom from "@/components/modale/ToastCustom";
 import TasksList from "@/components/tasksList/TasksList";
 import { readAllDoneTasks } from "@/services/task/readAllTasks";
 import converDoneTasksList from "@/utils/convertDoneTasksList";
-import { showToast } from "@/utils/toast";
 
 import error from "@/assets/data/error.json";
 import data from "@/assets/data/task.json";
 
 import { COLORS } from "@/styles/themes";
-import { taskType } from "@/types/definition";
+import { resultStateType, taskType } from "@/types/definition";
 import { tasksPageStyle } from "./tasksPageStyle";
 
 export default function DoneTasksPage() {
@@ -20,13 +20,18 @@ export default function DoneTasksPage() {
     const [lastMonthTasks, setLastMonthTasks] = useState<taskType[]>([]);
     const [otherTasks, setOtherTasks] = useState<taskType[]>([]);
 
+    // Toast state
+    const [isVisibleModal, setIsVisibleModal] = useState<boolean>(false);
+    const [resultState, setResultState] = useState<resultStateType | null>(null);
+
     useEffect(()=> {
         const fetchTasks = async() => {
             const todayTasks = await readAllDoneTasks();
             if(todayTasks?.success && todayTasks.result) {
                 setTasksList(todayTasks?.result);
             } else {
-                showToast("error", error.default);
+                setResultState({ message: error.default, type: "error" });
+                setIsVisibleModal(true);
             }
         }
         fetchTasks();
@@ -47,6 +52,7 @@ export default function DoneTasksPage() {
 
     return (
         <View style={[tasksPageStyle.view, { backgroundColor: COLORS.lightGrey}]}>
+            <ToastCustom isVisibleModal={isVisibleModal} setIsVisibleModal={setIsVisibleModal} resultState={resultState}/>
             <Text style={tasksPageStyle.title}>{data.doneTasksTitle}</Text>
             {isNoTask ? (
                 <View style={{ flex: 1 }}>

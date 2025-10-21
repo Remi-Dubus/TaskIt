@@ -7,7 +7,7 @@ export const COLORS = {
     green: "#37983B",
     lightYellow: "#FFFCD0FF",
     orange: "#DD9428FF",
-    red: "#B83111"
+    red: "#e04f3bff"
 }
 
 const BASE_SIZE = 16;

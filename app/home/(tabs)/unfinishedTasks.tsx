@@ -2,17 +2,23 @@ import { useEffect, useState } from "react";
 import { ScrollView, Text, View } from "react-native";
 
 import TasksList from "@/components/tasksList/TasksList";
-import { showToast } from "@/utils/toast";
+
+import ToastCustom from "@/components/modale/ToastCustom";
+import readUnfinishedTasks from "@/services/task/readUnfinishedTask";
 
 import error from "@/assets/data/error.json";
 import data from "@/assets/data/task.json";
-import readUnfinishedTasks from "@/services/task/readUnfinishedTask";
+
 import { COLORS } from "@/styles/themes";
-import { taskType } from "@/types/definition";
+import { resultStateType, taskType } from "@/types/definition";
 import { tasksPageStyle } from "./tasksPageStyle";
 
 export default function UnfinishedTasksPage() {
     const [tasksList, setTasksList] = useState<taskType[]>([]);
+
+    // Toast state
+    const [isVisibleModal, setIsVisibleModal] = useState<boolean>(false);
+    const [resultState, setResultState] = useState<resultStateType | null>(null);
 
     useEffect(()=> {
         const fetchTasks = async() => {
@@ -21,7 +27,8 @@ export default function UnfinishedTasksPage() {
             if(todayTasks?.success && todayTasks.result) {
                 setTasksList(todayTasks?.result);
             } else {
-                showToast("error", error.default);
+                setResultState({ message: error.default, type: "error" });
+                setIsVisibleModal(true);
             }
         }
         fetchTasks();
@@ -29,6 +36,7 @@ export default function UnfinishedTasksPage() {
     
     return (
         <View style={[tasksPageStyle.view, { backgroundColor: COLORS.lightYellow}]}>
+            <ToastCustom isVisibleModal={isVisibleModal} setIsVisibleModal={setIsVisibleModal} resultState={resultState}/>
             <Text style={tasksPageStyle.title}>{data.unfinishedTasksTitle}</Text>
             {!tasksList || tasksList.length === 0 ? (
                 <View style={{ flex: 1 }}>
@@ -41,4 +49,4 @@ export default function UnfinishedTasksPage() {
             )}
         </View>
     );
-}
+};
