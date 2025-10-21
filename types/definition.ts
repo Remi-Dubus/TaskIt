@@ -53,3 +53,12 @@ export type modalType = {
     isVisibleModal: boolean;
     setIsVisibleModal: (bool: boolean) => void 
 }
+
+export type resultStateType = {
+    message: string, 
+    type: string
+}
+
+export type toastType = {
+    resultState: resultStateType | null
+}

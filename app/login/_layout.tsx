@@ -10,7 +10,7 @@ export default function LoginLayout() {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             if (currentUser) {
-                router.replace("/home");
+                setTimeout(() => router.replace("./home"), 2000);
             }
             setLoading(false);
         });
@@ -25,4 +25,4 @@ export default function LoginLayout() {
             <Stack.Screen name="Register" options={{ title: "S'inscrire" }} />
         </Stack>
     );
-}
+};
