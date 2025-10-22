@@ -55,7 +55,6 @@ export default function DatePicker({control, errors }: {control: Control<taskTyp
                             }}
                         />
                     )}
-                    
                 </View>
             )}
         />

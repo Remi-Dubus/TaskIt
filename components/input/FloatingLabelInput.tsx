@@ -47,7 +47,6 @@ export default function FloatingLabelInput<T extends object>({
             ]}>
               {label}
             </Text>
-            
           </View>
           {error && <Text style={inputStyle.error}>{error.message as string}</Text>}
         </View>
