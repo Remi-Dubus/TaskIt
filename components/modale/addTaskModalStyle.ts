@@ -31,7 +31,8 @@ export const addTaskModalStyle = StyleSheet.create({
     dateAndPriority: { 
         flex: 1,
         display: "flex", 
-        justifyContent: "space-around",
+        justifyContent: "space-between",
+        paddingHorizontal: 8,
         flexDirection: "row", 
     }
 });
