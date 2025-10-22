@@ -18,8 +18,8 @@ export default function DatePicker({control, errors }: {control: Control<taskTyp
             control={control}
             name="date"
             render={({ field: { onChange, value } }) => (
-                <View style={{  width: "48%" }}>
-                    <View style={[inputStyle.input, { height: "100%" }] }>
+                <View style={{  width: "50%" }}>
+                    <View style={[inputStyle.input, { flex: 1 }] }>
                         <TouchableOpacity onPress={() => setShow(true)} style={{ position: "relative" }}>
                             <Text style={[
                                 inputStyle.label,
@@ -40,8 +40,9 @@ export default function DatePicker({control, errors }: {control: Control<taskTyp
                                 {new Date(value).toLocaleDateString()}
                             </Text>
                         }
+                        
                     </View>
-
+                    {errors && <Text style={[inputStyle.error, { marginLeft: 0, marginTop: 44 }]}>{errors.date?.message as string}</Text>}
                     {show && (
                         <DateTimePicker
                             value={value || date}
@@ -54,7 +55,6 @@ export default function DatePicker({control, errors }: {control: Control<taskTyp
                             }}
                         />
                     )}
-                    {errors && <Text style={inputStyle.error}>{errors.date?.message as string}</Text>}
                 </View>
             )}
         />

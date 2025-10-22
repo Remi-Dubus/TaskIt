@@ -4,7 +4,7 @@ import { COLORS, FONT_FAMILY, FONT_SIZE } from "@/styles/themes";
 
 export const inputStyle = StyleSheet.create({
     inputText: {
-        marginTop: 30,
+        marginTop: 24,
         height: 50,
         borderBottomWidth: 1,
         borderColor: COLORS.darkGrey,
@@ -20,8 +20,7 @@ export const inputStyle = StyleSheet.create({
         fontFamily: FONT_FAMILY.paragraphe,
         fontSize: FONT_SIZE.paragraphe,
         padding: 0,
-        margin: 0,
-        height: "80%",
+        marginTop: 16
     },
     dateValue: {
         marginTop: 12, 
@@ -37,6 +36,6 @@ export const inputStyle = StyleSheet.create({
     error: {
         color: COLORS.orange,
         marginLeft: 8,
-        marginTop: 2,
+        marginVertical: 4
     }
 });
