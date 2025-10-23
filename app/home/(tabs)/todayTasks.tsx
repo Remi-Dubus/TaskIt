@@ -34,18 +34,20 @@ export default function TodayTasksPage() {
     }, [])
     
     return (
-        <View style={tasksPageStyle.view}>
-            <ToastCustom isVisibleModal={isVisibleModal} setIsVisibleModal={setIsVisibleModal} resultState={resultState}/>
-            <Text style={tasksPageStyle.title}>{data.todayTaskTitle}</Text>
-            {!tasksList || tasksList.length === 0 ? (
-                <View style={{ flex: 1 }}>
-                    <Text style={[tasksPageStyle.text, {textAlign: "center", width: "100%"}]}>{data.noTask}</Text>
-                </View>
-            ) : (
-                <ScrollView contentContainerStyle={tasksPageStyle.scrollView}>
-                    <TasksList title={null} tasksList={tasksList} setTasksList={setTasksList}/>
-                </ScrollView>
-            )}
+        <View style={tasksPageStyle.scrollView}>
+            <ScrollView>
+                <ToastCustom isVisibleModal={isVisibleModal} setIsVisibleModal={setIsVisibleModal} resultState={resultState}/>
+                <Text style={tasksPageStyle.title}>{data.todayTaskTitle}</Text>
+                {!tasksList || tasksList.length === 0 ? (
+                    <View style={{ flex: 1 }}>
+                        <Text style={[tasksPageStyle.text, {textAlign: "center", width: "100%"}]}>{data.noTask}</Text>
+                    </View>
+                ) : (
+                    <View style={tasksPageStyle.view}>
+                        <TasksList title={null} tasksList={tasksList} setTasksList={setTasksList}/>
+                    </View>
+                )}
+            </ScrollView>
             <AddButton tasksList={tasksList} setTasksList={setTasksList}/>
         </View>
     );
