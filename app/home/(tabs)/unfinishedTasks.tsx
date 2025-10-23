@@ -35,18 +35,20 @@ export default function UnfinishedTasksPage() {
     }, [])
     
     return (
-        <View style={[tasksPageStyle.view, { backgroundColor: COLORS.lightYellow}]}>
-            <ToastCustom isVisibleModal={isVisibleModal} setIsVisibleModal={setIsVisibleModal} resultState={resultState}/>
-            <Text style={tasksPageStyle.title}>{data.unfinishedTasksTitle}</Text>
-            {!tasksList || tasksList.length === 0 ? (
-                <View style={{ flex: 1 }}>
-                    <Text style={[tasksPageStyle.text, {textAlign: "center", width: "100%"}]}>{data.noTask}</Text>
-                </View>
-            ) : (
-                <ScrollView contentContainerStyle={tasksPageStyle.scrollView}>
-                    <TasksList title={null} tasksList={tasksList} setTasksList={setTasksList}/>
-                </ScrollView>
-            )}
+        <View style={[tasksPageStyle.scrollView, { backgroundColor: COLORS.lightYellow}]}>
+            <ScrollView>
+                <ToastCustom isVisibleModal={isVisibleModal} setIsVisibleModal={setIsVisibleModal} resultState={resultState}/>
+                <Text style={tasksPageStyle.title}>{data.unfinishedTasksTitle}</Text>
+                {!tasksList || tasksList.length === 0 ? (
+                    <View style={{ flex: 1 }}>
+                        <Text style={[tasksPageStyle.text, {textAlign: "center", width: "100%"}]}>{data.noTask}</Text>
+                    </View>
+                ) : (
+                    <View style={tasksPageStyle.view}>
+                        <TasksList title={null} tasksList={tasksList} setTasksList={setTasksList}/>
+                    </View>
+                )}
+            </ScrollView>
         </View>
     );
 };

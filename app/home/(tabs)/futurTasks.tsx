@@ -44,19 +44,21 @@ export default function FuturTasksPage() {
     }, [tasksList]);
 
     return (
-        <View style={tasksPageStyle.view}>
-            <ToastCustom isVisibleModal={isVisibleModal} setIsVisibleModal={setIsVisibleModal} resultState={resultState}/>
-            <Text style={tasksPageStyle.title}>{data.futurTasksTitle}</Text>
-            {(!nextTwoDayTasksList || nextTwoDayTasksList.length === 0) && (!currentMonthTasksList || currentMonthTasksList.length === 0) ? (
-                <View style={{ flex: 1 }}>
-                    <Text style={[tasksPageStyle.text, {textAlign: "center", width: "100%"}]}>{data.noTask}</Text>
-                </View>
-            ) : (
-                <ScrollView contentContainerStyle={tasksPageStyle.scrollView}>
-                    {nextTwoDayTasksList.length > 0 && (<TasksList title={data.nextTwoDaysTaskTitle} tasksList={nextTwoDayTasksList} setTasksList={setNextTwoDayTasksList}/>)}
-                    {currentMonthTasksList.length > 0 && (<TasksList title={data.tasksOfTheMonthTitle} tasksList={currentMonthTasksList} setTasksList={setCurrentMonthTasksList}/>)}
-                </ScrollView>
-            )}
+        <View style={tasksPageStyle.scrollView}>
+            <ScrollView>
+                <ToastCustom isVisibleModal={isVisibleModal} setIsVisibleModal={setIsVisibleModal} resultState={resultState}/>
+                <Text style={tasksPageStyle.title}>{data.futurTasksTitle}</Text>
+                {(!nextTwoDayTasksList || nextTwoDayTasksList.length === 0) && (!currentMonthTasksList || currentMonthTasksList.length === 0) ? (
+                    <View style={{ flex: 1 }}>
+                        <Text style={[tasksPageStyle.text, {textAlign: "center", width: "100%"}]}>{data.noTask}</Text>
+                    </View>
+                ) : (
+                    <View style={tasksPageStyle.view}>
+                        {nextTwoDayTasksList.length > 0 && (<TasksList title={data.nextTwoDaysTaskTitle} tasksList={nextTwoDayTasksList} setTasksList={setNextTwoDayTasksList}/>)}
+                        {currentMonthTasksList.length > 0 && (<TasksList title={data.tasksOfTheMonthTitle} tasksList={currentMonthTasksList} setTasksList={setCurrentMonthTasksList}/>)}
+                    </View>
+                )}
+            </ScrollView>
             <AddButton tasksList={tasksList} setTasksList={setTasksList}/>
         </View>
     );

@@ -51,21 +51,23 @@ export default function DoneTasksPage() {
     const isNoTask = (!yesterdayTasks || yesterdayTasks.length === 0) && (!threeLastDaysTasks || threeLastDaysTasks.length === 0) && (!lastMonthTasks || lastMonthTasks.length === 0) && (!otherTasks || otherTasks.length === 0); 
 
     return (
-        <View style={[tasksPageStyle.view, { backgroundColor: COLORS.lightGrey}]}>
-            <ToastCustom isVisibleModal={isVisibleModal} setIsVisibleModal={setIsVisibleModal} resultState={resultState}/>
-            <Text style={tasksPageStyle.title}>{data.doneTasksTitle}</Text>
-            {isNoTask ? (
-                <View style={{ flex: 1 }}>
-                    <Text style={[tasksPageStyle.text, {textAlign: "center", width: "100%"}]}>{data.noTask}</Text>
-                </View>
-            ) : (
-                <ScrollView contentContainerStyle={tasksPageStyle.scrollView}>
-                    { yesterdayTasks.length > 0 && (<TasksList title={data.yesterdayDoneTaskTitle} tasksList={yesterdayTasks} setTasksList={setYesterdayTasks}/>)}
-                    { threeLastDaysTasks.length > 0 && (<TasksList title={data.threeLastsDaysDoneTasksTitle} tasksList={threeLastDaysTasks} setTasksList={setThreeLastDaysTasks}/>)}
-                    { lastMonthTasks.length > 0 && (<TasksList title={data.lastMonthDoneTasksTitle} tasksList={lastMonthTasks} setTasksList={setLastMonthTasks}/>)}
-                    { otherTasks.length > 0 && (<TasksList title={null} tasksList={otherTasks} setTasksList={setOtherTasks}/>)}
-                </ScrollView>
-            )}
+        <View style={[tasksPageStyle.scrollView, { backgroundColor: COLORS.lightGrey}]}>
+            <ScrollView>
+                <ToastCustom isVisibleModal={isVisibleModal} setIsVisibleModal={setIsVisibleModal} resultState={resultState}/>
+                <Text style={tasksPageStyle.title}>{data.doneTasksTitle}</Text>
+                {isNoTask ? (
+                    <View style={{ flex: 1 }}>
+                        <Text style={[tasksPageStyle.text, {textAlign: "center", width: "100%"}]}>{data.noTask}</Text>
+                    </View>
+                ) : (
+                    <View style={tasksPageStyle.view}>
+                        { yesterdayTasks.length > 0 && (<TasksList title={data.yesterdayDoneTaskTitle} tasksList={yesterdayTasks} setTasksList={setYesterdayTasks}/>)}
+                        { threeLastDaysTasks.length > 0 && (<TasksList title={data.threeLastsDaysDoneTasksTitle} tasksList={threeLastDaysTasks} setTasksList={setThreeLastDaysTasks}/>)}
+                        { lastMonthTasks.length > 0 && (<TasksList title={data.lastMonthDoneTasksTitle} tasksList={lastMonthTasks} setTasksList={setLastMonthTasks}/>)}
+                        { otherTasks.length > 0 && (<TasksList title={null} tasksList={otherTasks} setTasksList={setOtherTasks}/>)}
+                    </View>
+                )}
+            </ScrollView>
         </View>
     );
 };
