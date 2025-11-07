@@ -13,7 +13,8 @@ export const buttonStyle = StyleSheet.create({
         justifyContent: "center",
         width: "50%",
         marginHorizontal: "auto",
-        marginTop: 30,
+        marginTop: 40,
+        marginBottom: 20,
         elevation: 5
     },
     buttonText: {

@@ -17,7 +17,7 @@ export default function PriorityButton({ control, errors }: { control: Control<t
             control={control}
             name="priority"
             render={({ field: { onChange, value } }) => (
-                <View style={[inputStyle.input, { height: "100%", width: "30%", marginLeft: "4%" }]}>
+                <View style={[inputStyle.input, { height: "100%", width: "30%", marginRight: "4%" }]}>
                     <TouchableOpacity onPress={() => onChange(nextPriority(value || 1))} style={{display: "flex", flexDirection: "row"}}>
                         <Text style={[inputStyle.label, { marginTop: 8, fontSize: FONT_SIZE.paragraphe * 1.2 }]}>Priorité: </Text>
                         <View

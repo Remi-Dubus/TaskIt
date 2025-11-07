@@ -1,18 +1,18 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "expo-router";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { KeyboardAvoidingView, Platform, ScrollView, Text, View } from "react-native";
-import Toast from "react-native-toast-message";
 
 import SubmitButton from "@/components/button/SubmitButton";
+import ToastCustom from "@/components/modale/ToastCustom";
 import { register } from "@/services/auth/auth";
-import { showToast } from "@/utils/toast";
 import { resolverSchema } from "@/utils/validation";
 import FloatingLabelInput from "../../components/input/FloatingLabelInput";
 
 import Header from "@/components/layout/Header";
 import { authStyle } from "@/styles/authStyle";
-import { registerType } from "@/types/definition";
+import { registerType, resultStateType } from "@/types/definition";
 import data from "../../assets/data/auth.json";
 
 export default function Register() {
@@ -35,21 +35,28 @@ export default function Register() {
     // Submit the data to database
     const router = useRouter();
 
+    // Toast state
+    const [isVisibleModal, setIsVisibleModal] = useState<boolean>(false);
+    const [resultState, setResultState] = useState<resultStateType | null>(null);
+
     const onSubmit = async (data: registerType) => {
         const result = await register(data.email, data.password);
         
         if (!result.success) {
-            showToast("error", result.message);
+            setResultState({ message: result.message, type: "error" });
+            setIsVisibleModal(true);
             reset();
         } else {
-            showToast("success", result.message);
+            setResultState({ message: result.message, type: "success" });
+            setIsVisibleModal(true);
             reset();
-            router.replace("./login");
+            setTimeout(() => router.replace("./login"), 2000);
         }
     }
 
     return (
         <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ flex: 1 }} >
+            <ToastCustom isVisibleModal={isVisibleModal} setIsVisibleModal={setIsVisibleModal} resultState={resultState}/>
             <ScrollView keyboardShouldPersistTaps="handled" style={{ flex: 1 }}>
                 <Header />
                 <View style={authStyle.form}>
@@ -62,7 +69,6 @@ export default function Register() {
                     <SubmitButton buttonText={data.register} onSubmit={onSubmit} handleSubmit={handleSubmit}/>
                 </View>
             </ScrollView>
-            <Toast position="top"/>
         </KeyboardAvoidingView>
-    )
-}
+    );
+};

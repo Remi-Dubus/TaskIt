@@ -3,12 +3,12 @@ import { StyleSheet } from "react-native";
 import { COLORS, FONT_FAMILY, FONT_SIZE } from "@/styles/themes";
 
 export const tasksPageStyle = StyleSheet.create({
-    view: { 
+    scrollView: { 
         flex: 1, 
         position: "relative",
         backgroundColor: COLORS.lightGreen,
     },
-    scrollView: {
+    view: {
         paddingTop: 20,
         paddingBottom: 80, 
         marginHorizontal: 20
