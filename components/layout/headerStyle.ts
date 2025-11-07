@@ -5,6 +5,7 @@ export const headerStyle = StyleSheet.create({
     view: {
         flexDirection: "row",
         height: "12%",
+        width: "70%"
     },
     title: {
         fontFamily: FONT_FAMILY.title,
