@@ -1,16 +1,15 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "expo-router";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { KeyboardAvoidingView, Platform, ScrollView, Text, View } from "react-native";
 
+import AccountMenuButton from "@/components/button/AccountMenuButton";
 import FloatingLabelInput from "@/components/input/FloatingLabelInput";
 import Header from "@/components/layout/Header";
 import ToastCustom from "@/components/modale/ToastCustom";
 import { profilSchema } from "@/utils/validation";
 
 import data from "@/assets/data/auth.json";
-import AccountMenuButton from "@/components/button/AccountMenuButton";
 import { getUserByEmail } from "@/services/user/userService";
 import { authStyle } from "@/styles/authStyle";
 import type { registerType, resultStateType } from "@/types/definition";
@@ -40,7 +39,6 @@ export default function Register() {
             confirmPassword: "",
         }
     });
-    const router = useRouter();
 
     // is Edit mode state
     const [isEditInfo, setIsEditInfo] = useState<boolean>(false);

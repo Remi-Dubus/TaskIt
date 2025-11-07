@@ -22,7 +22,7 @@ export default function LogoutButton({ setIsVisibleModal }: { setIsVisibleModal:
             setResultState({ message: result.message, type: "error" });
             setIsVisibleModal(true);
         } 
-    }
+    };
 
     return (
         <View>
@@ -34,4 +34,4 @@ export default function LogoutButton({ setIsVisibleModal }: { setIsVisibleModal:
             </TouchableOpacity>
         </View>
     )
-}
+};
