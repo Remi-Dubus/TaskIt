@@ -10,6 +10,7 @@ export default function FloatingLabelInput<T extends object>({
   control,
   name,
   label,
+  isEditInfo,
   autoCapitalize,
   secureTextEntry,
   errors
@@ -34,6 +35,7 @@ export default function FloatingLabelInput<T extends object>({
               value={value}
               onFocus={() => setIsFocused(true)}
               onBlur={() => setIsFocused(false)}
+              editable={isEditInfo}
             />
             <Text style={[
               inputStyle.label,

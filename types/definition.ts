@@ -10,6 +10,7 @@ export type envType = {
 }
 
 export type registerType = {
+    pseudo?: string;
     email: string;
     password: string;
     confirmPassword: string;
@@ -24,6 +25,7 @@ export type floatingLabelInputType<T extends object> = {
     control: Control<T>;
     name: FieldPath<T>;
     label: string;
+    isEditInfo?: boolean;
     autoCapitalize?: "none" | "sentences" | "words" | "characters";
     secureTextEntry?: boolean;
     errors: FieldErrors<T>;

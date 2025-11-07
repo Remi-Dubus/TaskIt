@@ -1,15 +1,17 @@
 import { StyleSheet } from "react-native";
 
-
 export const accountMenuButtonStyle = StyleSheet.create({
     view: {
-        flex: 1,
-        position: "relative"
+        position: "relative",
+        zIndex: 10,
     },
     button: {
         position: "absolute",
-        top: 50,
-        right: 20,
+        top: 16,
+        right: 16,
+        zIndex: 10,
+        height: 60,
+        width: 60,
     },
     gear: {
         height: 50,
