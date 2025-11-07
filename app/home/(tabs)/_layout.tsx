@@ -14,13 +14,18 @@ export default function TabsLayout() {
                 headerTintColor: COLORS.dark,
                 tabBarStyle: {
                     backgroundColor: COLORS.light,
+                    height: 120,
                 },
+                tabBarItemStyle: {
+                    padding: 16
+                }
             }}
         >
             <Tabs.Screen 
                 name="todayTasks" 
                 options={{ 
-                    title: "Tâche de la journée",
+                    title: "Tâches de la journée",
+                    tabBarShowLabel: false,
                     tabBarIcon: ({ color, focused }) => (
                         <Ionicons name={focused ? "calendar-clear-sharp" : "calendar-clear-outline"} color={color} size={24} />
                     )
@@ -30,6 +35,7 @@ export default function TabsLayout() {
                 name="futurTasks" 
                 options={{ 
                     title: "Tâches futures",
+                    tabBarShowLabel: false,
                     tabBarIcon: ({ color, focused }) => (
                         <Ionicons name={focused ? "calendar-sharp" : "calendar-outline"} color={color} size={24} />
                     )
@@ -39,6 +45,7 @@ export default function TabsLayout() {
                 name="unfinishedTasks" 
                 options={{ 
                     title: "Tâches non abouti",
+                    tabBarShowLabel: false,
                     tabBarIcon: ({ color, focused }) => (
                         <Ionicons name={focused ? "ban-sharp" : "ban-outline"} color={color} size={24} />
                     )
@@ -48,8 +55,19 @@ export default function TabsLayout() {
                 name="doneTasks" 
                 options={{ 
                     title: "Tâches terminées",
+                    tabBarShowLabel: false,
                     tabBarIcon: ({ color, focused }) => (
                         <Ionicons name={focused ? "checkmark-done-sharp" : "checkmark-done-outline"} color={color} size={24} />
+                    )
+                }}
+            />
+            <Tabs.Screen 
+                name="profil" 
+                options={{ 
+                    title: "Profil",
+                    tabBarShowLabel: false,
+                    tabBarIcon: ({ color, focused }) => (
+                        <Ionicons name={focused ? "person-sharp" : "person-outline"} color={color} size={24} />
                     )
                 }}
             />

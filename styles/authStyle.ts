@@ -15,7 +15,7 @@ export const authStyle = StyleSheet.create({
         elevation: 5
     },
     title: {
-        marginBottom: 30,
+        marginBottom: 8,
         fontFamily: FONT_FAMILY.title,
         fontSize: FONT_SIZE.mainTitle,
         color: COLORS.dark,

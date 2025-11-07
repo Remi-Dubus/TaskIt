@@ -10,6 +10,7 @@ export type envType = {
 }
 
 export type registerType = {
+    pseudo?: string;
     email: string;
     password: string;
     confirmPassword: string;
@@ -24,6 +25,7 @@ export type floatingLabelInputType<T extends object> = {
     control: Control<T>;
     name: FieldPath<T>;
     label: string;
+    isEditInfo?: boolean;
     autoCapitalize?: "none" | "sentences" | "words" | "characters";
     secureTextEntry?: boolean;
     errors: FieldErrors<T>;
@@ -52,4 +54,13 @@ export type addTaskType = {
 export type modalType = {
     isVisibleModal: boolean;
     setIsVisibleModal: (bool: boolean) => void 
+}
+
+export type resultStateType = {
+    message: string, 
+    type: string
+}
+
+export type toastType = {
+    resultState: resultStateType | null
 }

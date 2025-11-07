@@ -10,6 +10,7 @@ export default function FloatingLabelInput<T extends object>({
   control,
   name,
   label,
+  isEditInfo,
   autoCapitalize,
   secureTextEntry,
   errors
@@ -22,30 +23,33 @@ export default function FloatingLabelInput<T extends object>({
       control={control}
       name={name}
       render={({ field: { onChange, value } }) => (
-        <View style={inputStyle.inputText}>
-          <TextInput
-            placeholder=""
-            style={inputStyle.input}
-            underlineColorAndroid="transparent"
-            autoCapitalize={autoCapitalize}
-            secureTextEntry={secureTextEntry}
-            onChangeText={onChange}
-            value={value}
-            onFocus={() => setIsFocused(true)}
-            onBlur={() => setIsFocused(false)}
-          />
-          <Text style={[
-            inputStyle.label,
-            {
-              top: isFocused || value ? -16 : 20,
-              fontSize: isFocused || value ? FONT_SIZE.paragraphe * 1.2: FONT_SIZE.paragraphe,
-              color: isFocused ? COLORS.dark : COLORS.darkGrey,
-              position: "absolute",
-              left: 8
-            }
-          ]}>
-            {label}
-          </Text>
+        <View>
+          <View style={inputStyle.inputText}>
+            <TextInput
+              placeholder=""
+              style={inputStyle.input}
+              underlineColorAndroid="transparent"
+              autoCapitalize={autoCapitalize}
+              secureTextEntry={secureTextEntry}
+              onChangeText={onChange}
+              value={value}
+              onFocus={() => setIsFocused(true)}
+              onBlur={() => setIsFocused(false)}
+              editable={isEditInfo}
+            />
+            <Text style={[
+              inputStyle.label,
+              {
+                top: isFocused || value ? -10 : 20,
+                fontSize: isFocused || value ? FONT_SIZE.paragraphe * 1.2: FONT_SIZE.paragraphe,
+                color: isFocused ? COLORS.dark : COLORS.darkGrey,
+                position: "absolute",
+                left: 8
+              }
+            ]}>
+              {label}
+            </Text>
+          </View>
           {error && <Text style={inputStyle.error}>{error.message as string}</Text>}
         </View>
       )}
